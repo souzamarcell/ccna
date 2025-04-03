@@ -358,6 +358,10 @@ body.menu-expanded button path {
   line-height: 150%;
 }
 
+#home .separator {
+  margin: 1rem;
+}
+
 /*=== SERVICES =================================*/
 #services header h2 {
   margin-bottom: 6rem;
@@ -658,7 +662,8 @@ footer .social-links {
     grid-area: C;
 
     flex-direction: row;
-    padding: 6rem;
+    /* padding: 6rem; */
+    padding: 2rem;
     gap: 0;
   }
 
