@@ -7,7 +7,8 @@ const questions = [
       "Gerenciar rotas entre redes",
       "Controlar acesso à rede"
     ],
-    answer: "Resolver endereços IP em endereços MAC"
+    answer: "Resolver endereços IP em endereços MAC",
+    clue: "Resolver endereços IP em endereços MAC"
   },
   {
     question: "Qual camada do modelo OSI é responsável pelo roteamento?",
@@ -17,7 +18,8 @@ const questions = [
       "Camada de Rede",
       "Camada de Aplicação"
     ],
-    answer: "Camada de Rede"
+    answer: "Camada de Rede",
+    clue: "Resolver endereços IP em endereços MAC"
   },
   {
     question: "Qual comando Cisco é usado para verificar o status das interfaces?",
@@ -27,6 +29,7 @@ const questions = [
       "show interfaces",
       "show vlan"
     ],
-    answer: "show interfaces"
+    answer: "show interfaces",
+    clue: "Resolver endereços IP em endereços MAC"
   }
 ];
