@@ -215,6 +215,53 @@ const questions = [
     answer: 'Resolver nomes em endereços IP',
     clue: 'Traduz nome de domínio para IP.',
   },
+  
+  {
+  question: 'Qual organização foi responsável pela criação do modelo OSI?',
+  options: ['IEEE', 'ISO', 'IETF', 'Cisco'],
+  answer: 'ISO',
+  clue: 'O modelo OSI foi desenvolvido pela International Organization for Standardization.',
+},
+{
+  question: 'Qual foi o principal objetivo da criação do modelo OSI?',
+  options: [
+    'Criar um protocolo de roteamento',
+    'Padronizar a comunicação entre sistemas',
+    'Substituir o TCP/IP',
+    'Criar o protocolo Ethernet',
+  ],
+  answer: 'Padronizar a comunicação entre sistemas',
+  clue: 'O modelo OSI foi criado para estabelecer um padrão de comunicação em camadas.',
+},
+{
+  question: 'O modelo OSI é classificado como:',
+  options: [
+    'Protocolo de comunicação',
+    'Modelo conceitual de referência',
+    'Padrão exclusivo de switches',
+    'Tecnologia de fibra óptica',
+  ],
+  answer: 'Modelo conceitual de referência',
+  clue: 'O OSI não é um protocolo, é um modelo teórico dividido em 7 camadas.',
+},
+{
+  question: 'Quantas camadas possui o modelo OSI criado pela ISO?',
+  options: ['4 camadas', '5 camadas', '7 camadas', '8 camadas'],
+  answer: '7 camadas',
+  clue: 'O modelo OSI é dividido em sete camadas.',
+},
+{
+  question: 'Qual alternativa descreve corretamente o modelo OSI?',
+  options: [
+    'Modelo prático usado diretamente na internet',
+    'Modelo proprietário da Cisco',
+    'Modelo de referência criado para padronização',
+    'Protocolo da camada física',
+  ],
+  answer: 'Modelo de referência criado para padronização',
+  clue: 'Ele serve como base teórica para entender a comunicação em redes.',
+},
+
 ];
 
 

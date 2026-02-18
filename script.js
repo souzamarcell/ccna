@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   let currentQuestion = 0;
   let score = 0;
-
   let wrong = 0;
+  let shuffledQuestions = [];
+
   const statusPanel = document.getElementById('statusPanel');
   const questionNumberEl = document.getElementById('questionNumber');
   const correctCountEl = document.getElementById('correctCount');
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const restartBtn = document.getElementById('restartBtn');
   const clueText = document.getElementById('clueText');
 
-  // 🔹 FUNÇÃO DE EMBARALHAR AQUI DENTRO
+  // Função de embaralhar
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -32,36 +33,46 @@ document.addEventListener('DOMContentLoaded', () => {
   restartBtn.addEventListener('click', restartQuiz);
 
   function startQuiz() {
-    shuffleArray(questions);
+    const selectedValue = document.getElementById('questionCount').value;
 
-    startScreen.classList.add('hidden');
-    quizContainer.classList.remove('hidden');
-    statusPanel.classList.remove('hidden');
+    // Embaralha e seleciona quantidade
+    let tempQuestions = [...questions];
+    shuffleArray(tempQuestions);
+
+    if (selectedValue === 'all') {
+      shuffledQuestions = tempQuestions;
+    } else {
+      const amount = parseInt(selectedValue);
+      shuffledQuestions = tempQuestions.slice(0, amount);
+    }
 
     currentQuestion = 0;
     score = 0;
     wrong = 0;
+
+    startScreen.classList.add('hidden');
+    quizContainer.classList.remove('hidden');
+    statusPanel.classList.remove('hidden');
 
     loadQuestion();
   }
 
   function loadQuestion() {
     resetState();
-    const q = questions[currentQuestion];
+    const q = shuffledQuestions[currentQuestion];
     questionEl.textContent = q.question;
 
-    // q.options.forEach((option) => {
     const shuffledOptions = [...q.options];
     shuffleArray(shuffledOptions);
 
-    shuffledOptions.forEach((option) => {
+    shuffledOptions.forEach(option => {
       const btn = document.createElement('button');
       btn.textContent = option;
-      btn.className =
-        'w-full text-left px-4 py-2 border rounded hover:bg-gray-100';
+      btn.className = 'w-full text-left px-4 py-2 border rounded hover:bg-gray-100';
       btn.onclick = () => selectAnswer(option, q.answer);
       answersEl.appendChild(btn);
     });
+
     updateStatus();
   }
 
@@ -79,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
       wrong++;
     }
 
-    updateStatus(); // 🔹 Atualiza o menu imediatamente
+    updateStatus();
 
-    Array.from(answersEl.children).forEach((btn) => {
+    Array.from(answersEl.children).forEach(btn => {
       btn.disabled = true;
       if (btn.textContent === correct) {
         btn.classList.add('bg-green-200');
@@ -90,24 +101,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    const current = questions[currentQuestion];
+    const current = shuffledQuestions[currentQuestion];
 
     clueText.innerHTML = `
-    <p class="text-green-700 font-semibold mb-2">
-      Resposta correta: ${correct}
-    </p>
-    <p>
-      Explicação: ${current.clue}
-    </p>
-  `;
-
+      <p class="text-green-700 font-semibold mb-2">
+        Resposta correta: ${correct}
+      </p>
+      <p>
+        Explicação: ${current.clue}
+      </p>
+    `;
     clueText.classList.remove('hidden');
     nextBtn.classList.remove('hidden');
   }
 
   function nextQuestion() {
     currentQuestion++;
-    if (currentQuestion < questions.length) {
+    if (currentQuestion < shuffledQuestions.length) {
       loadQuestion();
     } else {
       showResult();
@@ -117,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function showResult() {
     quizContainer.classList.add('hidden');
     resultEl.classList.remove('hidden');
-    scoreText.textContent = `Você acertou ${score} de ${questions.length} questões.`;
+    scoreText.textContent = `Você acertou ${score} de ${shuffledQuestions.length} questões.`;
   }
 
   function restartQuiz() {
