@@ -3,107 +3,184 @@ const questions = [
     question: 'Qual tipo de cabo Ethernet não possui blindagem?',
     options: ['STP', 'FTP', 'UTP', 'SFTP'],
     answer: 'UTP',
-    clue: 'UTP: Unshielded Twisted Pair. Ele não tem blindagem, apenas os pares trançados. É o mais comum em escritórios e residências. Em prova: UTP = sem blindagem. STP, FTP e SFTP possuem algum tipo de blindagem.',
+    clue: 'UTP não possui blindagem.',
   },
-
   {
-    question:
-      'Qual categoria de cabo é comumente usada para Gigabit Ethernet (1 Gbps) em redes corporativas?',
+    question: 'Qual categoria de cabo é comumente usada para Gigabit Ethernet (1 Gbps) em redes corporativas?',
     options: ['Cat3', 'Cat5', 'Cat5e', 'Cat4'],
     answer: 'Cat5e',
-    clue: 'O Cat5e foi projetado para suportar 1 Gbps com estabilidade. É muito usado em redes corporativas por custo e desempenho. Cat5 comum não é mais recomendado.',
+    clue: 'Cat5e suporta 1 Gbps.',
   },
-
   {
-    question:
-      'Qual fator mais afeta negativamente cabos de par trançado de cobre?',
-    options: [
-      'Luz solar',
-      'Interferência eletromagnética',
-      'Umidade do ar',
-      'Temperatura ambiente',
-    ],
+    question: 'Qual fator mais afeta negativamente cabos de par trançado de cobre?',
+    options: ['Luz solar', 'Interferência eletromagnética', 'Umidade do ar', 'Temperatura ambiente'],
     answer: 'Interferência eletromagnética',
-    clue: 'Cabos de cobre sofrem com ruído elétrico de motores, máquinas e cabos energizados. O trançamento existe justamente para reduzir esse problema.',
+    clue: 'Cobre sofre com ruído elétrico.',
   },
-
   {
-    question: 'Em um enlace Ethernet padrão, qual afirmação está correta?',
-    options: [
-      'O cabo pode ter até 200 metros sem perda',
-      'O limite é definido apenas pelo switch',
-      'O comprimento máximo é 100 metros',
-      'Depende apenas da categoria do conector',
-    ],
-    answer: 'O comprimento máximo é 100 metros',
-    clue: 'Valor clássico de prova. São 90 metros de cabo horizontal mais 10 metros de patch cords. Passou disso, começa perda de sinal.',
+    question: 'Em um enlace Ethernet padrão, qual é o comprimento máximo recomendado?',
+    options: ['200 metros', 'Depende apenas do switch', '100 metros', 'Depende do conector'],
+    answer: '100 metros',
+    clue: '90m + 10m = 100m.',
   },
-
   {
     question: 'Quando um cabo crossover é tradicionalmente utilizado?',
-    options: [
-      'Para ligar computador a switch',
-      'Para ligar switch a roteador',
-      'Para ligar dispositivos do mesmo tipo',
-      'Para conexões de fibra óptica',
-    ],
-    answer: 'Para ligar dispositivos do mesmo tipo',
-    clue: 'Tradicionalmente usado para PC com PC, switch com switch e roteador com roteador. Hoje o Auto MDI-X reduziu essa necessidade, mas ainda cai em prova.',
+    options: ['PC para switch', 'Switch para roteador', 'Dispositivos do mesmo tipo', 'Fibra óptica'],
+    answer: 'Dispositivos do mesmo tipo',
+    clue: 'PC-PC ou switch-switch.',
   },
-
   {
     question: 'O que a tecnologia Auto MDI-X permite?',
-    options: [
-      'Aumentar a velocidade do cabo',
-      'Detectar falhas de fibra',
-      'Usar cabo direto ou crossover automaticamente',
-      'Reduzir interferência eletromagnética',
-    ],
-    answer: 'Usar cabo direto ou crossover automaticamente',
-    clue: 'Essa tecnologia detecta o tipo de conexão e ajusta internamente. Resultado: você não precisa se preocupar com o tipo de cabo.',
+    options: ['Aumentar velocidade', 'Detectar falhas de fibra', 'Usar direto ou crossover automaticamente', 'Reduzir interferência'],
+    answer: 'Usar direto ou crossover automaticamente',
+    clue: 'Detecta o tipo de cabo automaticamente.',
   },
-
   {
     question: 'Qual característica é típica da fibra óptica monomodo?',
-    options: [
-      'Curta distância e baixo custo',
-      'Usa vários caminhos de luz',
-      'Longas distâncias e alta velocidade',
-      'Sensível a interferência elétrica',
-    ],
-    answer: 'Longas distâncias e alta velocidade',
-    clue: 'A monomodo usa um único feixe de luz com menos dispersão. Ideal para backbone e longas distâncias. Em prova: Monomodo = longa distância.',
+    options: ['Curta distância', 'Vários caminhos de luz', 'Longas distâncias', 'Sensível a interferência'],
+    answer: 'Longas distâncias',
+    clue: 'Monomodo é usada para longas distâncias.',
   },
-
   {
     question: 'A fibra óptica multimodo é mais indicada para:',
-    options: [
-      'Links entre cidades',
-      'Longas distâncias acima de 100 km',
-      'Conexões internas e curtas distâncias',
-      'Ambientes com alta voltagem elétrica',
-    ],
-    answer: 'Conexões internas e curtas distâncias',
-    clue: 'A multimodo usa vários caminhos de luz, o que limita a distância. Muito comum em data centers e prédios. Em prova: Multimodo = curta distância.',
+    options: ['Entre cidades', 'Acima de 100 km', 'Curtas distâncias internas', 'Alta voltagem'],
+    answer: 'Curtas distâncias internas',
+    clue: 'Multimodo é usada em ambientes internos.',
   },
-
   {
-    question: 'Qual conector é mais comum em cabos de par trançado Ethernet?',
+    question: 'Qual conector é mais comum em cabos Ethernet de cobre?',
     options: ['SC', 'LC', 'RJ45', 'BNC'],
     answer: 'RJ45',
-    clue: 'RJ45 é o conector padrão para cabos Ethernet de cobre. SC e LC são de fibra. BNC é coaxial.',
+    clue: 'Padrão de rede Ethernet.',
   },
-
   {
-    question:
-      'Por que a fibra óptica é considerada mais segura que o cabo de cobre?',
-    options: [
-      'Usa voltagem mais alta',
-      'Não pode ser cortada',
-      'Não emite sinais elétricos',
-      'Funciona apenas em redes privadas',
-    ],
+    question: 'Por que a fibra óptica é mais segura que o cobre?',
+    options: ['Alta voltagem', 'Não pode ser cortada', 'Não emite sinais elétricos', 'Só redes privadas'],
     answer: 'Não emite sinais elétricos',
-    clue: 'Fibra transmite luz, não sinal elétrico. Isso dificulta interceptação e interferência, tornando a comunicação mais segura.',
+    clue: 'Transmite luz.',
+  },
+  {
+    question: 'Qual conector era usado em redes coaxiais antigas?',
+    options: ['RJ45', 'SC', 'LC', 'BNC'],
+    answer: 'BNC',
+    clue: 'Usado em Ethernet coaxial.',
+  },
+  {
+    question: 'Qual conector utiliza sistema de encaixe tipo baioneta?',
+    options: ['SC', 'LC', 'ST', 'RJ45'],
+    answer: 'ST',
+    clue: 'Gira para travar.',
+  },
+  {
+    question: 'Qual padrão de pinagem é mais usado em cabos Ethernet diretos?',
+    options: ['T568A', 'T568B', 'Cross-over', 'Coaxial'],
+    answer: 'T568B',
+    clue: 'Mais comum em redes corporativas.',
+  },
+  {
+    question: 'Qual camada do OSI é responsável pelo roteamento?',
+    options: ['Física', 'Enlace', 'Rede', 'Transporte'],
+    answer: 'Rede',
+    clue: 'Camada 3.',
+  },
+  {
+    question: 'Qual protocolo resolve IP para MAC?',
+    options: ['DNS', 'ARP', 'DHCP', 'ICMP'],
+    answer: 'ARP',
+    clue: 'Funciona na rede local.',
+  },
+  {
+    question: 'Quantos hosts válidos existem em uma rede /26?',
+    options: ['62', '64', '30', '126'],
+    answer: '62',
+    clue: '64 menos rede e broadcast.',
+  },
+  {
+    question: 'Qual é a máscara decimal do prefixo /27?',
+    options: ['255.255.255.0', '255.255.255.224', '255.255.255.240', '255.255.255.192'],
+    answer: '255.255.255.224',
+    clue: 'Blocos de 32.',
+  },
+  {
+    question: 'Qual é a função do ICMP?',
+    options: ['Arquivos', 'Nomes', 'Diagnóstico', 'IP automático'],
+    answer: 'Diagnóstico',
+    clue: 'Ping usa ICMP.',
+  },
+  {
+    question: 'O que significa CIDR?',
+    options: ['Classless Inter-Domain Routing', 'Central Internet Data Routing', 'Cisco Internal Routing', 'Class Internal Domain Routing'],
+    answer: 'Classless Inter-Domain Routing',
+    clue: 'Permite máscaras variáveis.',
+  },
+  {
+    question: 'Qual dispositivo opera na camada 2?',
+    options: ['Roteador', 'Switch', 'Firewall', 'Servidor DNS'],
+    answer: 'Switch',
+    clue: 'Trabalha com MAC.',
+  },
+  {
+    question: 'Qual é a principal função do DNS?',
+    options: ['IP para MAC', 'IP automático', 'Resolver nomes', 'Criptografar'],
+    answer: 'Resolver nomes',
+    clue: 'Traduz nome em IP.',
+  },
+  {
+    question: 'Quantos bits possui um endereço IPv4?',
+    options: ['32', '64', '128', '48'],
+    answer: '32',
+    clue: '4 octetos.',
+  },
+  {
+    question: 'Quantos bits possui um endereço IPv6?',
+    options: ['32', '64', '128', '256'],
+    answer: '128',
+    clue: 'Muito maior que IPv4.',
+  },
+  {
+    question: 'Qual é a função do gateway padrão?',
+    options: ['Resolver nomes', 'Enviar para outras redes', 'Converter IP em MAC', 'Filtrar vírus'],
+    answer: 'Enviar para outras redes',
+    clue: 'Saída da rede.',
+  },
+  {
+    question: 'Qual endereço IPv4 é reservado para loopback?',
+    options: ['127.0.0.1', '0.0.0.0', '255.255.255.255', '169.254.1.1'],
+    answer: '127.0.0.1',
+    clue: 'Teste local.',
+  },
+  {
+    question: 'Qual protocolo atribui IP automaticamente?',
+    options: ['DNS', 'ARP', 'DHCP', 'ICMP'],
+    answer: 'DHCP',
+    clue: 'Configuração automática.',
+  },
+  {
+    question: 'Qual é a função do endereço MAC?',
+    options: ['Identificação lógica', 'Identificação física local', 'Criptografia', 'Definir máscara'],
+    answer: 'Identificação física local',
+    clue: 'Camada 2.',
+  },
+  {
+    question: 'Qual tipo de comunicação envia para todos na rede?',
+    options: ['Unicast', 'Multicast', 'Broadcast', 'Anycast'],
+    answer: 'Broadcast',
+    clue: 'Todos os dispositivos.',
+  },
+  {
+    question: 'Qual tipo envia para um único destino?',
+    options: ['Unicast', 'Broadcast', 'Multicast', 'Flood'],
+    answer: 'Unicast',
+    clue: 'Um para um.',
+  },
+  {
+    question: 'Qual dispositivo encaminha pacotes entre redes diferentes?',
+    options: ['Switch', 'Hub', 'Roteador', 'Access Point'],
+    answer: 'Roteador',
+    clue: 'Camada 3.',
   },
 ];
+
+
+// 30 Questoes 18/02/2026
+// Tota 25 +
