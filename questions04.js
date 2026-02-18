@@ -1,4 +1,4 @@
-function loadQuestions01() {
+function loadQuestions04() {
   return [
     {
       question: 'Qual tipo de cabo Ethernet não possui blindagem?',

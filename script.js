@@ -47,9 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const functionName =
           'load' + selectedBank.charAt(0).toUpperCase() + selectedBank.slice(1);
         selectedBankFunction = window[functionName];
+
         if (typeof selectedBankFunction === 'function') {
-          questions = selectedBankFunction(); // carrega as questões
-          startBtn.disabled = false; // habilita o botão
+          questions = selectedBankFunction();
+          populateQuestionCountOptions();
+          startBtn.disabled = false; // habilita iniciar
         } else {
           console.error(`Função ${functionName} não encontrada no banco`);
         }
@@ -57,6 +59,36 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(script);
     });
   });
+
+  // Função para preencher o select de forma dinâmica
+  function populateQuestionCountOptions() {
+    const select = document.getElementById('questionCount');
+    select.innerHTML = ''; // limpa opções antigas
+
+    if (!questions || questions.length === 0) return;
+
+    // Adicionar opções de 10 em 10
+    for (let i = 10; i <= questions.length; i += 10) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.textContent = `${i} questões`;
+      select.appendChild(option);
+    }
+
+    // Se o total não for múltiplo de 10, adiciona a última opção
+    if (questions.length % 10 !== 0 && questions.length % 10 !== 0) {
+      const option = document.createElement('option');
+      option.value = questions.length;
+      option.textContent = `${questions.length} questões`;
+      select.appendChild(option);
+    }
+
+    // Sempre adicionar a opção "Todas"
+    const allOption = document.createElement('option');
+    allOption.value = 'all';
+    allOption.textContent = 'Todas';
+    select.appendChild(allOption);
+  }
 
   startBtn.addEventListener('click', () => {
     if (!selectedBank) {
