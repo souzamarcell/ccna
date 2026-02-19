@@ -6,6 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let wrong = 0;
   let selectedBankFunction = null;
 
+  const bank1 = 'questions01'; // ou dinamicamente
+  const total = window['loadQuestions01']
+    ? window['loadQuestions01']().length
+    : 0;
+  const countEl = document.getElementById(`count-${bank1}`);
+  if (countEl) countEl.textContent = total;
+
+  const bank2 = 'questions02'; // ou dinamicamente
+  const total2 = window['loadQuestions02']
+    ? window['loadQuestions02']().length
+    : 0;
+  const countE2 = document.getElementById(`count-${bank2}`);
+  if (countE2) countE2.textContent = total2;
+
   const bankCards = document.querySelectorAll('[data-bank]');
   const accuracyEl = document.getElementById('accuracy');
   const startBtn = document.getElementById('startBtn');

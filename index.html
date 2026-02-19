@@ -67,17 +67,21 @@
           class="grid grid-cols-7 sm:grid-cols-7 gap-.5 mb-2 justify-items-center"
         >
           <div
-            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank"
             data-bank="questions01"
           >
-            1
+            <span class="text-base">1</span>
+            <span class="text-xs" id="count-questions01">0</span>
           </div>
+
           <div
-            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank"
             data-bank="questions02"
           >
-            2
+            <span class="text-base">2</span>
+            <span class="text-xs" id="count-questions02">0</span>
           </div>
+
           <div
             class="w-10 h-109 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
             data-bank="questions03"
@@ -109,7 +113,7 @@
             7
           </div>
         </div>
-<!-- 
+        <!--
         <div
           class="grid grid-cols-7 sm:grid-cols-7 gap-.5 mb-2 justify-items-center"
         >
