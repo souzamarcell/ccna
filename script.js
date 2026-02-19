@@ -176,8 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
     shuffledOptions.forEach((opt) => {
       const btn = document.createElement('button');
       btn.textContent = opt;
-      btn.className =
-        'w-full p-4 rounded-xl border border-gray-300 bg-white text-base sm:text-lg font-medium hover:bg-gray-100 transition';
+      btn.className = 'bg-gray-100 p-3 rounded hover:bg-gray-200';
+      // 'w-full p-4 rounded-xl border border-gray-300 bg-white text-base sm:text-lg font-medium hover:bg-gray-100 transition';
 
       btn.onclick = () => selectAnswer(opt, q.answer);
       answersEl.appendChild(btn);
