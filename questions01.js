@@ -1,4 +1,4 @@
-function loadQuestions01() {
+window.loadQuestions01 = function () {
   return [
     {
       question: 'Qual tipo de cabo Ethernet não possui blindagem?',
@@ -463,7 +463,7 @@ function loadQuestions01() {
 
     // ------------------- Possui 7 camadas
   ];
-}
+};
 // 451 / 6 =
 // 30 Questoes 18/02/2026
 // Tota 25 +

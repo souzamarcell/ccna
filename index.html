@@ -2,41 +2,43 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulado CCNA</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white p-6 rounded shadow-md w-full max-w-xl">
+  <body
+    class="bg-gray-100 min-h-screen flex items-start sm:items-center justify-center py-6"
+  >
+    <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-lg w-full max-w-xl mx-4">
       <div
         class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-4"
       >
         <h1 class="text-2xl font-bold text-center sm:text-left">
-          Simulado CCNA 2
+          Simulado CCNA v.1.09
         </h1>
 
         <div
           id="statusPanel"
-          class="hidden grid grid-cols-3 gap-3 text-sm text-center sm:text-right"
+          class="hidden grid grid-cols-2 gap-3 text-center text-sm sm:text-base"
         >
-          <div class="bg-gray-100 p-2 rounded">
-            <p class="text-gray-500">Questão</p>
-            <p class="font-semibold text-gray-800">
-              <span id="questionNumber">0</span>
-            </p>
+          <div class="bg-gray-100 rounded-xl p-3">
+            <p class="text-sm text-gray-500">Questão</p>
+            <p id="questionNumber" class="text-xl font-bold">0</p>
           </div>
 
-          <div class="bg-green-50 p-2 rounded">
-            <p class="text-green-600">Certas</p>
-            <p class="font-semibold text-green-700">
-              <span id="correctCount">0</span>
-            </p>
+          <div class="bg-gray-100 rounded-xl p-3">
+            <p class="text-sm text-gray-500">Certas</p>
+            <p id="correctCount" class="text-xl font-bold text-green-600">0</p>
           </div>
 
-          <div class="bg-red-50 p-2 rounded">
-            <p class="text-red-600">Erradas</p>
-            <p class="font-semibold text-red-700">
-              <span id="wrongCount">0</span>
-            </p>
+          <div class="bg-gray-100 rounded-xl p-3">
+            <p class="text-sm text-gray-500">Erradas</p>
+            <p id="wrongCount" class="text-xl font-bold text-red-600">0</p>
+          </div>
+
+          <div class="bg-gray-100 rounded-xl p-3">
+            <p class="text-sm text-gray-500">% Acerto</p>
+            <p id="accuracy" class="text-xl font-bold text-blue-600">0%</p>
           </div>
         </div>
       </div>
@@ -52,28 +54,46 @@
           class="grid grid-cols-4 gap-4 mb-4 justify-items-center sm:grid-cols-4"
         >
           <div
-            class="w-8 h-8 bg-blue-500 text-white flex items-center justify-center font-bold rounded cursor-pointer hover:bg-blue-600 selectBank"
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
             data-bank="questions01"
           >
             1
           </div>
           <div
-            class="w-8 h-8 bg-blue-500 text-white flex items-center justify-center font-bold rounded cursor-pointer hover:bg-blue-600 selectBank"
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
             data-bank="questions02"
           >
             2
           </div>
           <div
-            class="w-8 h-8 bg-blue-500 text-white flex items-center justify-center font-bold rounded cursor-pointer hover:bg-blue-600 selectBank"
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
             data-bank="questions03"
           >
             3
           </div>
           <div
-            class="w-8 h-8 bg-blue-500 text-white flex items-center justify-center font-bold rounded cursor-pointer hover:bg-blue-600 selectBank"
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
             data-bank="questions04"
           >
             4
+          </div>
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
+            data-bank="questions04"
+          >
+            5
+          </div>
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
+            data-bank="questions04"
+          >
+            6
+          </div>
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition"
+            data-bank="questions04"
+          >
+            7
           </div>
         </div>
 
@@ -88,13 +108,7 @@
           <select
             id="questionCount"
             class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="5">5 questões</option>
-            <option value="10">10 questões</option>
-            <option value="20">20 questões</option>
-            <option value="30">30 questões</option>
-            <option value="all">Todas</option>
-          </select>
+          ></select>
         </div>
         <button
           id="startBtn"
@@ -106,8 +120,13 @@
 
       <!-- QUIZ -->
       <div id="quiz-container" class="hidden">
-        <p id="question" class="text-lg font-semibold mb-4"></p>
-        <div id="answers" class="space-y-2"></div>
+        <p
+          id="question"
+          class="text-lg sm:text-xl md:text-2xl font-semibold mb-5 leading-relaxed text-center sm:text-left"
+        ></p>
+
+        <div id="answers" class="flex flex-col gap-3"></div>
+
         <p
           id="clueText"
           class="mt-4 p-3 bg-yellow-100 text-yellow-800 rounded hidden"
@@ -132,6 +151,10 @@
       </div>
     </div>
 
+    <script src="questions01.js"></script>
+    <script src="questions02.js"></script>
+    <script src="questions03.js"></script>
+    <script src="questions04.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

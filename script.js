@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let wrong = 0;
   let selectedBankFunction = null;
 
+  const bankCards = document.querySelectorAll('[data-bank]');
+  const accuracyEl = document.getElementById('accuracy');
   const startBtn = document.getElementById('startBtn');
   const restartBtn = document.getElementById('restartBtn');
   const nextBtn = document.getElementById('nextBtn');
@@ -46,28 +48,51 @@ document.addEventListener('DOMContentLoaded', () => {
       script.onload = () => {
         const functionName =
           'load' + selectedBank.charAt(0).toUpperCase() + selectedBank.slice(1);
-        selectedBankFunction = window[functionName];
 
-        if (typeof selectedBankFunction === 'function') {
-          questions = selectedBankFunction();
+        if (typeof window[functionName] === 'function') {
+          questions = window[functionName]();
           populateQuestionCountOptions();
-          startBtn.disabled = false; // habilita iniciar
+
+          startBtn.disabled = false;
+          startBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+          console.log('Banco carregado:', questions.length);
         } else {
-          console.error(`Função ${functionName} não encontrada no banco`);
+          console.error(`Função ${functionName} não encontrada.`);
         }
       };
+
       document.body.appendChild(script);
     });
   });
 
-  // Função para preencher o select de forma dinâmica
+  bankCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      bankCards.forEach((c) => c.classList.remove('bg-green-600'));
+      card.classList.add('bg-green-600');
+
+      selectedBank = card.getAttribute('data-bank');
+
+      const functionName =
+        'load' + selectedBank.charAt(0).toUpperCase() + selectedBank.slice(1);
+
+      if (typeof window[functionName] === 'function') {
+        questions = window[functionName]();
+        populateQuestionCountOptions();
+        startBtn.disabled = false;
+      } else {
+        console.error('Banco não encontrado:', functionName);
+      }
+    });
+  });
+
+  // Função para preencher o select
   function populateQuestionCountOptions() {
     const select = document.getElementById('questionCount');
-    select.innerHTML = ''; // limpa opções antigas
+    select.innerHTML = '';
 
     if (!questions || questions.length === 0) return;
 
-    // Adicionar opções de 10 em 10
     for (let i = 10; i <= questions.length; i += 10) {
       const option = document.createElement('option');
       option.value = i;
@@ -75,15 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
       select.appendChild(option);
     }
 
-    // Se o total não for múltiplo de 10, adiciona a última opção
-    if (questions.length % 10 !== 0 && questions.length % 10 !== 0) {
+    if (questions.length % 10 !== 0) {
       const option = document.createElement('option');
       option.value = questions.length;
       option.textContent = `${questions.length} questões`;
       select.appendChild(option);
     }
 
-    // Sempre adicionar a opção "Todas"
     const allOption = document.createElement('option');
     allOption.value = 'all';
     allOption.textContent = 'Todas';
@@ -154,7 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = document.createElement('button');
       btn.textContent = opt;
       btn.className =
-        'w-full text-left px-4 py-2 border rounded hover:bg-gray-100';
+        'w-full p-4 rounded-xl border border-gray-300 bg-white text-base sm:text-lg font-medium hover:bg-gray-100 transition';
+
       btn.onclick = () => selectAnswer(opt, q.answer);
       answersEl.appendChild(btn);
     });
@@ -165,7 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function selectAnswer(selected, correct) {
-    if (selected === correct) score++;
+    const isCorrect = selected === correct;
+
+    if (isCorrect) score++;
     else wrong++;
 
     updateStatus();
@@ -177,10 +203,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const current = questions[currentQuestion];
+
     clueText.innerHTML = `
-      <p class="text-green-700 font-semibold mb-2">Resposta correta: ${correct}</p>
+      <p class="flex items-center gap-2 font-semibold mb-2">
+        ${
+          isCorrect
+            ? `<span class="w-5 h-5 flex items-center justify-center bg-green-600 text-white rounded-full text-xs">✓</span>`
+            : `<span class="w-5 h-5 flex items-center justify-center bg-red-600 text-white rounded-full text-xs">✕</span>`
+        }
+        Resposta correta: ${correct}
+      </p>
       <p>Explicação: ${current.clue}</p>
     `;
+
     clueText.classList.remove('hidden');
     nextBtn.classList.remove('hidden');
   }
@@ -189,6 +224,12 @@ document.addEventListener('DOMContentLoaded', () => {
     questionNumberEl.textContent = currentQuestion + 1;
     correctCountEl.textContent = score;
     wrongCountEl.textContent = wrong;
+
+    const totalAnswered = score + wrong;
+    const percentage =
+      totalAnswered === 0 ? 0 : Math.round((score / totalAnswered) * 100);
+
+    accuracyEl.textContent = percentage + '%';
   }
 
   function shuffleArray(array) {
