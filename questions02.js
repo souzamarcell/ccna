@@ -1,43 +1,13 @@
 function loadQuestions02() {
   return [
     {
-      question: '2 Qual tipo de cabo Ethernet não possui blindagem?',
-      options: ['STP', 'FTP', 'UTP', 'SFTP'],
-      answer: 'UTP',
-      clue: 'UTP não possui blindagem.',
-    },
-    {
-      question: '2 Qual tipo de cabo Ethernet não possui blindagem?',
-      options: ['STP', 'FTP', 'UTP', 'SFTP'],
-      answer: 'UTP',
-      clue: 'UTP não possui blindagem.',
-    },
-    {
-      question: '2 Qual tipo de cabo Ethernet não possui blindagem?',
-      options: ['STP', 'FTP', 'UTP', 'SFTP'],
-      answer: 'UTP',
-      clue: 'UTP não possui blindagem.',
-    },
-    {
-      question: '2 Qual tipo de cabo Ethernet não possui blindagem?',
-      options: ['STP', 'FTP', 'UTP', 'SFTP'],
-      answer: 'UTP',
-      clue: 'UTP não possui blindagem.',
-    },
-    {
-      question: '2 Qual tipo de cabo Ethernet não possui blindagem?',
-      options: ['STP', 'FTP', 'UTP', 'SFTP'],
-      answer: 'UTP',
-      clue: 'UTP não possui blindagem.',
-    },
-    {
-      question: '2 Qual tipo de cabo Ethernet não possui blindagem?',
-      options: ['STP', 'FTP', 'UTP', 'SFTP'],
-      answer: 'UTP',
-      clue: 'UTP não possui blindagem.',
+      question: '2 Qual camada do OSI é responsável pelo roteamento?',
+      options: ['Física', 'Enlace', 'Rede', 'Transporte'],
+      answer: 'Rede',
+      clue: 'Camada 3.',
     },
 
-    // ------------------- Possui 7 camadas
+
   ];
 }
 // 451 / 6 =
