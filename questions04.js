@@ -1,15 +1,12 @@
 function loadQuestions04() {
   return [
     {
-      question: 'Qual tipo de cabo Ethernet não possui blindagem?',
-      options: ['STP', 'FTP', 'UTP', 'SFTP'],
-      answer: 'UTP',
-      clue: 'UTP não possui blindagem.',
+      num: 1,
+      question: 'Uma empresa utiliza switches conectados a um único switch central. Quando o switch central falha, toda a rede fica indisponível. Qual topologia física está sendo utilizada?',
+      options: ['Malha completa', 'Barramento', 'Estrela', 'Anel'],
+      answer: 'Estrela',
+      clue: 'Existe um ponto único de falha central.',
     },
 
-    // ------------------- Possui 7 camadas
   ];
 }
-// 451 / 6 =
-// 30 Questoes 18/02/2026
-// Tota 25 +

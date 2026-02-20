@@ -6,26 +6,33 @@ document.addEventListener('DOMContentLoaded', () => {
   let wrong = 0;
   let selectedBankFunction = null;
 
-  const bank1 = 'questions01'; // ou dinamicamente
+  const bank1 = 'questions01';
   const total = window['loadQuestions01']
     ? window['loadQuestions01']().length
     : 0;
   const countEl = document.getElementById(`count-${bank1}`);
   if (countEl) countEl.textContent = total;
 
-  const bank2 = 'questions02'; // ou dinamicamente
+  const bank2 = 'questions02';
   const total2 = window['loadQuestions02']
     ? window['loadQuestions02']().length
     : 0;
   const countE2 = document.getElementById(`count-${bank2}`);
   if (countE2) countE2.textContent = total2;
 
-    const bank3 = 'questions03'; // ou dinamicamente
+  const bank3 = 'questions03';
   const total3 = window['loadQuestions03']
     ? window['loadQuestions03']().length
     : 0;
   const countE3 = document.getElementById(`count-${bank3}`);
   if (countE3) countE3.textContent = total3;
+
+  const bank4 = 'questions04'; 
+  const total4 = window['loadQuestions04']
+    ? window['loadQuestions04']().length
+    : 0;
+  const countE4 = document.getElementById(`count-${bank4}`);
+  if (countE4) countE4.textContent = total4;
 
   const bankCards = document.querySelectorAll('[data-bank]');
   const accuracyEl = document.getElementById('accuracy');
