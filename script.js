@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const countE2 = document.getElementById(`count-${bank2}`);
   if (countE2) countE2.textContent = total2;
 
+    const bank3 = 'questions03'; // ou dinamicamente
+  const total3 = window['loadQuestions03']
+    ? window['loadQuestions03']().length
+    : 0;
+  const countE3 = document.getElementById(`count-${bank3}`);
+  if (countE3) countE3.textContent = total3;
+
   const bankCards = document.querySelectorAll('[data-bank]');
   const accuracyEl = document.getElementById('accuracy');
   const startBtn = document.getElementById('startBtn');

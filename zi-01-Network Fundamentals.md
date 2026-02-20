@@ -2,9 +2,9 @@
 
 ## 1️⃣ Conceitos básicos de rede
 
-* O que é LAN, WAN e MAN
+* O que é LAN, WAN e MAN                          20/FEV/2026
 * Topologias, estrela, malha, barramento
-* Tipos de rede, SOHO, enterprise, data center
+* Tipos de rede, SOHO, enterprise, data center    
 * Papel de host, cliente e servidor
 
 ## 2️⃣ Modelos de comunicação
