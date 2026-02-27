@@ -1,5 +1,5 @@
 
-1. **Redes (Network Fundamentals)** 20%
+1. **Redes (Network Fundamentals)** - 20%
 
   FASE 1: A Fundação (Onde tudo começa)
 

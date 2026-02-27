@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let score = 0;
   let wrong = 0;
   let totalQuestions = 0;
+  let selectedAnswers = [];
 
   const bankCards = document.querySelectorAll('.selectBank');
   const startBtn = document.getElementById('startBtn');
@@ -32,8 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================
   // CONTAGEM DE QUESTÕES POR BANCO
   // =========================
-  updateBankCount('questions01', 'loadQuestions01');
-  updateBankCount('questions02', 'loadQuestions02');
+  updateBankCount('questions011', 'loadQuestions011');
+  updateBankCount('questions012', 'loadQuestions012');
+  updateBankCount('questions013', 'loadQuestions013');
   updateBankCount('questions03', 'loadQuestions03');
   updateBankCount('questions04', 'loadQuestions04');
 
@@ -152,7 +154,22 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.className =
         'bg-gray-100 px-3 py-2 rounded-lg hover:bg-gray-200 text-sm text-left';
 
-      btn.onclick = () => selectAnswer(opt, q.answer);
+      btn.addEventListener('click', () => {
+        if (selectedAnswers.includes(opt)) {
+          selectedAnswers = selectedAnswers.filter((a) => a !== opt);
+          btn.classList.add('bg-blue-100', 'text-blue-900');
+        } else {
+          selectedAnswers.push(opt);
+          btn.classList.add('bg-blue-100', 'text-blue-900');
+        }
+
+        // mostra botão Confirmar se houver pelo menos uma resposta selecionada
+        if (selectedAnswers.length > 0) {
+          confirmBtn.classList.remove('hidden');
+        } else {
+          confirmBtn.classList.add('hidden');
+        }
+      });
 
       answersEl.appendChild(btn);
     });
@@ -160,78 +177,150 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStatus();
   }
 
+  confirmBtn.addEventListener('click', () => {
+    const currentQ = questions[currentQuestion];
+
+    const correct =
+      Array.isArray(currentQ.answer) &&
+      currentQ.answer.every((a) => selectedAnswers.includes(a)) &&
+      selectedAnswers.every((a) => currentQ.answer.includes(a));
+
+    if (correct) score++;
+    else wrong++;
+
+    // Marca respostas
+    Array.from(answersEl.children).forEach((btn) => {
+      btn.disabled = true;
+      if (currentQ.answer.includes(btn.textContent))
+        btn.classList.add('bg-green-200', 'text-green-900');
+      else if (selectedAnswers.includes(btn.textContent))
+        btn.classList.add('bg-red-200', 'text-red-900');
+    });
+
+    // Mostra explicação
+    clueText.innerHTML = `
+    <p class="font-semibold mb-2 ${correct ? 'text-green-600' : 'text-red-600'}">
+      ${correct ? '✓ Correto!' : '✕ Errado!'}
+    </p>
+    <p>Resposta correta: ${currentQ.answer.join(', ')}</p>
+    <p class="mt-2">Explicação: ${currentQ.clue}</p>
+  `;
+    clueText.classList.remove('hidden');
+
+    nextBtn.classList.remove('hidden');
+    confirmBtn.classList.add('hidden');
+
+    selectedAnswers = [];
+    updateStatus(); // atualiza os contadores
+  });
+
   // =========================
   // SELECIONAR RESPOSTA
   // =========================
   function selectAnswer(selected, correct) {
     const isCorrect = selected === correct;
 
-    if (isCorrect) score++;
-    else wrong++;
-
     Array.from(answersEl.children).forEach((btn) => {
       btn.disabled = true;
-
       if (btn.textContent === correct) btn.classList.add('bg-green-200');
       else if (btn.textContent === selected) btn.classList.add('bg-red-200');
     });
 
     const current = questions[currentQuestion];
-
     clueText.innerHTML = `
-      <p class="font-semibold mb-2">
-        ${isCorrect ? '✓ Correto!' : '✕ Errado!'}
-      </p>
-      <p>Resposta correta: ${correct}</p>
-      <p class="mt-2">Explicação: ${current.clue}</p>
-    `;
+    <p class="font-semibold mb-2 ${isCorrect ? 'text-green-600' : 'text-red-600'}">
+      ${isCorrect ? '✓ Correto!' : '✕ Errado!'}
+    </p>
+    <p>Resposta correta: ${Array.isArray(current.answer) ? current.answer.join(', ') : current.answer}</p>
+    <p class="mt-2">Explicação: ${current.clue}</p>
+  `;
 
     clueText.classList.remove('hidden');
     nextBtn.classList.remove('hidden');
-
-    updateStatus();
   }
 
   // =========================
   // PRÓXIMA QUESTÃO
   // =========================
   nextBtn.addEventListener('click', () => {
-    currentQuestion++;
+    currentQuestion++; // apenas avança a questão
+    selectedAnswers = [];
 
     if (currentQuestion < questions.length) {
       loadQuestion();
     } else {
       quizContainer.classList.add('hidden');
       resultEl.classList.remove('hidden');
-
+      stopTimer();
       scoreText.textContent = `Você acertou ${score} de ${questions.length} questões.`;
     }
+
+    updateStatus(); // apenas atualiza display
   });
 
   // =========================
   // REINICIAR
   // =========================
   restartBtn.addEventListener('click', () => {
+    // Esconde resultado e quiz, mostra tela inicial
     resultEl.classList.add('hidden');
+    quizContainer.classList.add('hidden');
     startScreen.classList.remove('hidden');
     statusPanel.classList.add('hidden');
 
+    // Reseta contadores e arrays
     currentQuestion = 0;
     score = 0;
     wrong = 0;
+    totalQuestions = 0; // <-- reseta total
+    selectedAnswers = [];
     answersEl.innerHTML = '';
     clueText.innerHTML = '';
+
+    // Limpa painel de status
+    questionNumberEl.textContent = 0;
+    const questionTotalEl = document.getElementById('questionTotal');
+    if (questionTotalEl) questionTotalEl.textContent = 0;
+    correctCountEl.textContent = 0;
+    wrongCountEl.textContent = 0;
+    accuracyEl.textContent = '0%';
+
+    // Reset menu CCNA e tema
+    const ccnaMenu = document.getElementById('ccnaMenu');
+    const topicSelect = document.getElementById('topicSelect');
+    const fundamentosBlock = document.getElementById('fundamentosBlock');
+    const bankCards = document.querySelectorAll('.selectBank');
+    const questionCountSelect = document.getElementById('questionCount');
+
+    if (ccnaMenu) ccnaMenu.value = '';
+    if (topicSelect) topicSelect.value = '';
+    fundamentosBlock.classList.add('hidden');
+    questionCountSelect.classList.add('hidden');
+
+    bankCards.forEach((card) => {
+      card.classList.add('hidden');
+      card.classList.remove('bg-blue-700', 'bg-green-600');
+    });
+
+    // Desabilita botão Iniciar
+    startBtn.disabled = true;
+    startBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+    updateStatus();
+    resetTimer();
   });
 
   // =========================
   // ATUALIZAR STATUS
   // =========================
   function updateStatus() {
-    questionNumberEl.textContent = currentQuestion + 1;
+    questionNumberEl.textContent = Math.min(
+      currentQuestion + 1,
+      totalQuestions
+    );
     correctCountEl.textContent = score;
     wrongCountEl.textContent = wrong;
 
-    // Atualiza total dinâmico
     const questionTotalEl = document.getElementById('questionTotal');
     if (questionTotalEl) questionTotalEl.textContent = totalQuestions;
 

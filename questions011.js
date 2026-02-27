@@ -1,4 +1,4 @@
-function loadQuestions01() {
+function loadQuestions011() {
   return [
     {
       num: 1,
@@ -7,7 +7,7 @@ function loadQuestions01() {
       question:
         'Uma empresa conecta computadores dentro de um único prédio utilizando switches Ethernet. Que tipo de rede está sendo utilizada?',
       options: ['WAN', 'LAN', 'MAN', 'PAN'],
-      answer: 'LAN',
+      answer: ['LAN'],
       clue: 'Escopo local, dentro de prédio ou campus pequeno.',
     },
     {
@@ -17,7 +17,7 @@ function loadQuestions01() {
       question:
         'Uma operadora conecta filiais de uma empresa em diferentes estados do país utilizando links MPLS. Esse cenário caracteriza qual tipo de rede?',
       options: ['LAN', 'PAN', 'WAN', 'MAN'],
-      answer: 'WAN',
+      answer: ['WAN'],
       clue: 'Abrange grandes distâncias geográficas.',
     },
     {
@@ -27,7 +27,7 @@ function loadQuestions01() {
       question:
         'Uma universidade conecta seus prédios distribuídos pela cidade utilizando fibra óptica própria. Esse cenário é melhor classificado como:',
       options: ['PAN', 'LAN', 'MAN', 'WAN'],
-      answer: 'MAN',
+      answer: ['MAN'],
       clue: 'Abrange uma área metropolitana.',
     },
     {
@@ -37,7 +37,7 @@ function loadQuestions01() {
       question:
         'Um usuário conecta seu notebook ao smartphone via Bluetooth para compartilhar internet. Que tipo de rede é essa?',
       options: ['WAN', 'LAN', 'PAN', 'MAN'],
-      answer: 'PAN',
+      answer: ['PAN'],
       clue: 'Rede pessoal de curto alcance.',
     },
     {
@@ -51,7 +51,7 @@ function loadQuestions01() {
         'Interconexão de redes locais através de provedores',
         'Uso exclusivo de Ethernet',
       ],
-      answer: 'Interconexão de redes locais através de provedores',
+      answer: ['Interconexão de redes locais através de provedores'],
       clue: 'WAN normalmente depende de operadoras.',
     },
     {
@@ -60,7 +60,7 @@ function loadQuestions01() {
       subTropic: '1.1 Conceitos de rede',
       question: 'Qual tecnologia é mais comum em uma LAN corporativa?',
       options: ['Bluetooth', 'Ethernet', 'MPLS', 'LTE'],
-      answer: 'Ethernet',
+      answer: ['Ethernet'],
       clue: 'LAN tradicionalmente usa Ethernet.',
     },
     {
@@ -74,7 +74,7 @@ function loadQuestions01() {
         'LAN é pública e WAN é privada',
         'WAN usa apenas fibra óptica',
       ],
-      answer: 'WAN cobre maiores distâncias geográficas',
+      answer: ['WAN cobre maiores distâncias geográficas'],
       clue: 'A principal diferença é o alcance.',
     },
     {
@@ -84,7 +84,7 @@ function loadQuestions01() {
       question:
         'Uma empresa possui matriz e três filiais na mesma cidade conectadas por links dedicados de fibra contratados de uma operadora. Isso é classificado como:',
       options: ['PAN', 'LAN', 'MAN', 'VPN doméstica'],
-      answer: 'MAN',
+      answer: ['MAN'],
       clue: 'Conexão dentro de uma área metropolitana.',
     },
     {
@@ -98,7 +98,7 @@ function loadQuestions01() {
         'Fone Bluetooth conectado ao celular',
         'Campus universitário com vários prédios',
       ],
-      answer: 'Fone Bluetooth conectado ao celular',
+      answer: ['Fone Bluetooth conectado ao celular'],
       clue: 'PAN é rede pessoal de curtíssimo alcance.',
     },
     {
@@ -113,7 +113,7 @@ function loadQuestions01() {
         'Grande alcance geográfico',
         'Controle administrativo local',
       ],
-      answer: 'Grande alcance geográfico',
+      answer: ['Grande alcance geográfico'],
       clue: 'Grande alcance é característica de WAN.',
     },
 
@@ -124,7 +124,7 @@ function loadQuestions01() {
       question:
         'Uma operadora fornece conexão entre países para uma multinacional. Esse tipo de rede é classificado como:',
       options: ['LAN', 'MAN', 'WAN', 'PAN'],
-      answer: 'WAN',
+      answer: ['WAN'],
       clue: 'Abrange países ou continentes.',
     },
     {
@@ -134,7 +134,7 @@ function loadQuestions01() {
       question:
         'Qual tipo de rede normalmente pertence e é gerenciada por uma única organização dentro de um prédio?',
       options: ['WAN', 'LAN', 'MAN', 'PAN'],
-      answer: 'LAN',
+      answer: ['LAN'],
       clue: 'LAN geralmente é privada e local.',
     },
     {
@@ -143,7 +143,7 @@ function loadQuestions01() {
       subTropic: '1.1 Conceitos de rede',
       question: 'Qual rede é mais provável apresentar maior latência?',
       options: ['PAN', 'LAN', 'WAN', 'Rede interna de laboratório'],
-      answer: 'WAN',
+      answer: ['WAN'],
       clue: 'Maior distância tende a maior latência.',
     },
     {
@@ -152,7 +152,7 @@ function loadQuestions01() {
       subTropic: '1.1 Conceitos de rede',
       question: 'Qual tecnologia é mais associada a uma PAN?',
       options: ['Ethernet', 'Bluetooth', 'MPLS', 'Metro Ethernet'],
-      answer: 'Bluetooth',
+      answer: ['Bluetooth'],
       clue: 'Bluetooth é típico de rede pessoal.',
     },
     {
@@ -162,7 +162,7 @@ function loadQuestions01() {
       question:
         'Um conjunto de prédios interligados dentro de um campus empresarial caracteriza:',
       options: ['PAN', 'LAN estendida', 'WAN global', 'Rede pública de ISP'],
-      answer: 'LAN estendida',
+      answer: ['LAN estendida'],
       clue: 'Ainda é LAN, mesmo com vários prédios próximos.',
     },
 
@@ -173,7 +173,7 @@ function loadQuestions01() {
       question:
         'Qual rede normalmente depende de um provedor de serviços para interligação?',
       options: ['LAN', 'PAN', 'WAN', 'Rede interna de laboratório'],
-      answer: 'WAN',
+      answer: ['WAN'],
       clue: 'WAN geralmente envolve ISP.',
     },
     {
@@ -187,7 +187,7 @@ function loadQuestions01() {
         'Rede de um único escritório',
         'Rede doméstica Wi-Fi',
       ],
-      answer: 'Rede que cobre uma cidade',
+      answer: ['Rede que cobre uma cidade'],
       clue: 'MAN é metropolitana.',
     },
     {
@@ -197,7 +197,7 @@ function loadQuestions01() {
       question:
         'Uma rede doméstica conectando computadores, impressora e TV é classificada como:',
       options: ['WAN', 'LAN', 'MAN', 'Backbone da internet'],
-      answer: 'LAN',
+      answer: ['LAN'],
       clue: 'Rede local residencial ainda é LAN.',
     },
     {
@@ -212,7 +212,7 @@ function loadQuestions01() {
         'MAN contratada',
         'Link satelital global',
       ],
-      answer: 'LAN interna',
+      answer: ['LAN interna'],
       clue: 'Infraestrutura própria e local.',
     },
     {
@@ -226,7 +226,7 @@ function loadQuestions01() {
         'MAN é doméstica e WAN é empresarial',
         'WAN é sempre sem fio',
       ],
-      answer: 'WAN cobre áreas maiores que MAN',
+      answer: ['WAN cobre áreas maiores que MAN'],
       clue: 'Escala geográfica é o fator chave.',
     },
 
@@ -237,7 +237,7 @@ function loadQuestions01() {
       question:
         'Um smartwatch conectado ao celular via Bluetooth é exemplo de:',
       options: ['LAN', 'MAN', 'PAN', 'WAN'],
-      answer: 'PAN',
+      answer: ['PAN'],
       clue: 'Dispositivos pessoais de curto alcance.',
     },
     {
@@ -247,7 +247,7 @@ function loadQuestions01() {
       question:
         'Uma empresa conecta escritórios em diferentes continentes. Isso é classificado como:',
       options: ['LAN', 'MAN', 'WAN', 'PAN'],
-      answer: 'WAN',
+      answer: ['WAN'],
       clue: 'Escala continental é WAN.',
     },
     {
@@ -257,7 +257,7 @@ function loadQuestions01() {
       question:
         'Qual rede normalmente utiliza switches como principal dispositivo de interconexão?',
       options: ['LAN', 'WAN', 'PAN', 'Internet global'],
-      answer: 'LAN',
+      answer: ['LAN'],
       clue: 'Switch é típico de LAN.',
     },
     {
@@ -267,7 +267,7 @@ function loadQuestions01() {
       question:
         'Qual rede é mais suscetível a variações de latência por depender de múltiplos provedores?',
       options: ['LAN', 'WAN', 'PAN', 'Rede de laboratório isolada'],
-      answer: 'WAN',
+      answer: ['WAN'],
       clue: 'WAN depende de infraestruturas externas.',
     },
     {
@@ -281,7 +281,7 @@ function loadQuestions01() {
         'Rede entre prédios na mesma cidade',
         'Conexão Bluetooth entre dispositivos',
       ],
-      answer: 'Rede entre prédios na mesma cidade',
+      answer: ['Rede entre prédios na mesma cidade'],
       clue: 'Mesmo município, escala metropolitana.',
     },
 
@@ -297,7 +297,7 @@ function loadQuestions01() {
         'Internet global',
         'Backbone internacional',
       ],
-      answer: 'LAN corporativa',
+      answer: ['LAN corporativa'],
       clue: 'Totalmente gerenciada pela organização.',
     },
     {
@@ -307,7 +307,7 @@ function loadQuestions01() {
       question:
         'Uma conexão via link satelital entre continentes é classificada como:',
       options: ['LAN', 'MAN', 'WAN', 'PAN'],
-      answer: 'WAN',
+      answer: ['WAN'],
       clue: 'Longa distância geográfica.',
     },
     {
@@ -321,7 +321,7 @@ function loadQuestions01() {
         'LAN local',
         'Rede intercontinental',
       ],
-      answer: 'LAN local',
+      answer: ['LAN local'],
       clue: 'Menor distância, menor latência.',
     },
     {
@@ -335,7 +335,7 @@ function loadQuestions01() {
         'Rede pessoal de curto alcance',
         'Rede corporativa global',
       ],
-      answer: 'Rede pessoal de curto alcance',
+      answer: ['Rede pessoal de curto alcance'],
       clue: 'PAN é pessoal e limitada em alcance.',
     },
     {
@@ -345,7 +345,7 @@ function loadQuestions01() {
       question:
         'Uma empresa possui duas salas no mesmo prédio conectadas por switches. Mesmo havendo dois ambientes físicos distintos, a rede ainda é classificada como:',
       options: ['MAN', 'WAN', 'LAN', 'PAN'],
-      answer: 'LAN',
+      answer: ['LAN'],
       clue: 'Ainda é rede local dentro do mesmo prédio.',
     },
     {
@@ -355,7 +355,7 @@ function loadQuestions01() {
       question:
         'Uma empresa possui três filiais em diferentes cidades. Cada filial tem uma LAN local conectada a um roteador, e todos os roteadores se conectam a um provedor MPLS. Qual é a topologia WAN utilizada?',
       options: ['Malha parcial', 'Estrela', 'Anel', 'Barramento'],
-      answer: 'Estrela',
+      answer: ['Estrela'],
       clue: 'Todos os roteadores conectam a um ponto central (provedor).',
     },
     {
@@ -365,7 +365,7 @@ function loadQuestions01() {
       question:
         'Em uma MAN que conecta vários prédios de um campus universitário, qual dispositivo é mais crítico para gerenciar o tráfego entre os prédios?',
       options: ['Switch de acesso', 'Roteador', 'Hub', 'Access Point'],
-      answer: 'Roteador',
+      answer: ['Roteador'],
       clue: 'Roteadores gerenciam sub-redes e tráfego entre redes diferentes, mesmo dentro de uma MAN.',
     },
     {
@@ -380,7 +380,7 @@ function loadQuestions01() {
         'Roteador',
         'Firewall de perímetro',
       ],
-      answer: 'Switch Layer 3',
+      answer: ['Switch Layer 3'],
       clue: 'Switch L3 permite segmentação de rede com roteamento interno, fundamental para VLANs.',
     },
     {
@@ -395,7 +395,7 @@ function loadQuestions01() {
         'VPN não criptografa os dados',
         'MPLS é usada apenas para redes domésticas',
       ],
-      answer: 'MPLS fornece garantia de SLA e prioridade de tráfego',
+      answer: ['MPLS fornece garantia de SLA e prioridade de tráfego'],
       clue: 'MPLS permite QoS, VPN depende de Internet pública sem garantia de SLA.',
     },
     {
@@ -410,7 +410,7 @@ function loadQuestions01() {
         'Instalar impressoras em LANs',
         'Gerenciar contas de e-mail dos usuários',
       ],
-      answer: 'Configurar roteadores, VPNs e monitorar links WAN',
+      answer: ['Configurar roteadores, VPNs e monitorar links WAN'],
       clue: 'WAN exige configuração de roteadores, monitoramento e políticas de conectividade.',
     },
     {
@@ -420,7 +420,7 @@ function loadQuestions01() {
       question:
         'Uma rede corporativa tem LAN em dois prédios e precisa de alta disponibilidade entre eles. Qual topologia física de conexão entre os prédios aumenta a redundância?',
       options: ['Estrela simples', 'Anel', 'Barramento único', 'Conexão PAN'],
-      answer: 'Anel',
+      answer: ['Anel'],
       clue: 'Anel permite caminho alternativo se um link falhar.',
     },
     {
@@ -430,7 +430,7 @@ function loadQuestions01() {
       question:
         'Em uma LAN corporativa, qual dispositivo é responsável por segmentar domínios de colisão e reduzir broadcast?',
       options: ['Hub', 'Switch', 'Access Point', 'Roteador'],
-      answer: 'Switch',
+      answer: ['Switch'],
       clue: 'Switch segmenta domínios de colisão, diferente de roteadores que segmentam sub-redes.',
     },
     {
@@ -445,7 +445,7 @@ function loadQuestions01() {
         'PAN + Internet pública sem criptografia',
         'WAN pública sem controle',
       ],
-      answer: 'LAN local + VPN WAN',
+      answer: ['LAN local + VPN WAN'],
       clue: 'VPN permite extensão segura da LAN sobre WAN.',
     },
     {
@@ -460,7 +460,7 @@ function loadQuestions01() {
         'Confundir Wi-Fi com PAN',
         'Confundir IP público com MAC address',
       ],
-      answer: 'Confundir LAN com MAN',
+      answer: ['Confundir LAN com MAN'],
       clue: 'A MAN interliga várias LANs, mas cada prédio ainda tem sua LAN interna.',
     },
     {
@@ -475,8 +475,158 @@ function loadQuestions01() {
         'Hub com cabos CAT5',
         'Access Point com SSID aberto',
       ],
-      answer: 'Roteador com QoS',
+      answer: ['Roteador com QoS'],
       clue: 'QoS no roteador WAN permite priorizar tráfego crítico entre filiais.',
+    },
+    {
+      num: 1,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Usuários de uma filial relatam lentidão ao acessar o sistema ERP hospedado na matriz. O acesso local à internet está normal. O teste de ping para o gateway local funciona, mas para a matriz apresenta alta latência. Onde está mais provável o problema?',
+      options: [
+        'Switch de acesso da LAN',
+        'Link WAN entre filial e matriz',
+        'Placa de rede do usuário',
+        'Access Point local',
+      ],
+      answer: ['Link WAN entre filial e matriz'],
+      clue: 'A LAN local está funcional, o problema ocorre na comunicação remota.',
+    },
+    {
+      num: 2,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Uma empresa possui três prédios na mesma cidade conectados por fibra própria. Cada prédio possui sua própria LAN. Como essa estrutura deve ser classificada?',
+      options: [
+        'Única LAN estendida',
+        'WAN privada',
+        'MAN corporativa',
+        'PAN distribuída',
+      ],
+      answer: ['MAN corporativa'],
+      clue: 'Interliga múltiplas LANs dentro da mesma área metropolitana.',
+    },
+    {
+      num: 3,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Em uma topologia estrela WAN, o roteador central falha. Qual impacto ocorre?',
+      options: [
+        'Apenas uma filial perde conexão',
+        'Toda a comunicação entre filiais é interrompida',
+        'Somente a LAN central é afetada',
+        'Nenhum impacto devido à redundância automática',
+      ],
+      answer: ['Toda a comunicação entre filiais é interrompida'],
+      clue: 'Na estrela simples, o ponto central é crítico.',
+    },
+    {
+      num: 4,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Um administrador identifica que broadcasts excessivos estão impactando o desempenho da LAN. Qual solução reduz o domínio de broadcast?',
+      options: [
+        'Adicionar hubs',
+        'Criar VLANs e utilizar roteamento',
+        'Aumentar banda do link WAN',
+        'Substituir cabos por fibra',
+      ],
+      answer: ['Criar VLANs e utilizar roteamento'],
+      clue: 'VLAN segmenta domínios de broadcast.',
+    },
+    {
+      num: 5,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Uma filial conecta-se à matriz via VPN sobre internet pública. Durante horário de pico, aplicações críticas sofrem atraso. Qual é a causa mais provável?',
+      options: [
+        'Problema no switch LAN',
+        'Limitação e variabilidade da internet pública',
+        'Erro de IP estático local',
+        'Falha na placa de rede do servidor',
+      ],
+      answer: ['Limitação e variabilidade da internet pública'],
+      clue: 'VPN depende da qualidade da WAN pública.',
+    },
+    {
+      num: 6,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Uma empresa implementa redundância entre dois links WAN para alta disponibilidade. Qual conceito está sendo aplicado?',
+      options: [
+        'Segmentação LAN',
+        'Redundância de backbone',
+        'Balanceamento e failover WAN',
+        'Expansão de PAN',
+      ],
+      answer: ['Balanceamento e failover WAN'],
+      clue: 'Dois links WAN aumentam disponibilidade.',
+    },
+    {
+      num: 7,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Usuários conseguem acessar servidores locais, mas não sistemas em outra cidade. O roteador local responde ao ping, mas o gateway remoto não. O problema provavelmente está:',
+      options: [
+        'Na LAN do usuário',
+        'No switch local',
+        'No link WAN ou roteamento entre cidades',
+        'No cabo do computador',
+      ],
+      answer: ['No link WAN ou roteamento entre cidades'],
+      clue: 'Comunicação local ok, falha ocorre no tráfego intermunicipal.',
+    },
+    {
+      num: 8,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Em uma MAN corporativa, cada prédio possui roteador próprio. Qual é a principal função desses roteadores?',
+      options: [
+        'Converter sinal Bluetooth',
+        'Interligar sub-redes e controlar tráfego entre LANs',
+        'Substituir switches de acesso',
+        'Eliminar necessidade de VLAN',
+      ],
+      answer: ['Interligar sub-redes e controlar tráfego entre LANs'],
+      clue: 'Roteadores conectam redes distintas.',
+    },
+    {
+      num: 9,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Um link WAN apresenta alta latência, mas baixa perda de pacotes. Qual impacto mais provável para usuários?',
+      options: [
+        'Falha total de conexão',
+        'Apenas lentidão em aplicações sensíveis a tempo real',
+        'Impossibilidade de acessar LAN local',
+        'Erro de endereço MAC',
+      ],
+      answer: ['Apenas lentidão em aplicações sensíveis a tempo real'],
+      clue: 'Alta latência afeta principalmente aplicações em tempo real.',
+    },
+    {
+      num: 10,
+      tropic: '1. Network Fundamentals',
+      subTropic: '1.3 Troubleshooting e cenários avançados',
+      question:
+        'Um administrador precisa decidir entre MPLS dedicado ou VPN sobre internet para interligar filiais críticas. Se a prioridade for SLA garantido e QoS controlado, qual deve ser escolhido?',
+      options: [
+        'VPN doméstica',
+        'Link LAN estendido',
+        'MPLS dedicado',
+        'PAN corporativa',
+      ],
+      answer: ['MPLS dedicado'],
+      clue: 'MPLS oferece SLA e QoS garantido.',
     },
   ];
 }

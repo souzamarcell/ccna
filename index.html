@@ -16,7 +16,7 @@
         <h1
           class="text-2xl sm:text-xl font-semibold text-center sm:text-left leading-tight"
         >
-          Simulado CCNA v.1.1.9
+          Simulado CCNA v.1.2.2
         </h1>
 
         <div
@@ -75,25 +75,62 @@
 
       <!-- TELA INICIAL -->
       <div id="start-screen" class="text-center">
-        <p class="mb-2 text-gray-700 font-semibold">Escolha um Tema</p>
-
-        <div class="mb-4">
+        <!-- MENU PRINCIPAL CCNA -->
+        <div class="mb-3">
           <select
-            id="topicSelect"
+            id="ccnaMenu"
             class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="">Selecione um tema</option>
-            <option value="conceitos">Conceitos de Rede</option>
-            <option value="topologias">Topologias Físicas e Lógicas</option>
-            <option value="cabos">Cabos, Conectores e Mídias</option>
-            <option value="velocidade">
-              Velocidade, Duplex e Largura de Banda
+            <option value="">Selecione o domínio CCNA</option>
+            <option value="fundamentos">1. Network Fundamentals - 20%</option>
+            <option value="access">2. Access - 20%</option>
+            <option value="ipconnect">3. IP Connectivity - 25%</option>
+            <option value="ipservices">4. IP Services - 10%</option>
+            <option value="security">5. Security Fundamentals - 15%</option>
+            <option value="automation">
+              6. Automation & Programmability - 10%
             </option>
           </select>
-          <!-- Texto do banco, inicialmente oculto -->
-          <p id="bankText" class="mb-2 text-gray-700 font-semibold hidden">
-            Escolha um banco de perguntas
-          </p>
+        </div>
+
+        <!-- BLOCO NETWORK FUNDAMENTALS -->
+        <div id="fundamentosBlock" class="hidden">
+          <p class="mb-2 text-gray-700 font-semibold">Escolha um Tema</p>
+          <div class="mb-2">
+            <select
+              id="topicSelect"
+              class="w-full p-1 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Selecione um tema</option>
+              <option value="conceitos">1. Conceitos de Rede</option>
+              <option value="topologias">2. Topologias Físicas e Lógicas</option>
+              <option value="cabos">3. Cabos, Conectores e Mídias</option>
+              <option value="velocidade">
+                4. Velocidade, Duplex e Largura de Banda
+              </option>
+              <option value="osi">5. Modelos de Referência - OSI</option>
+              <option value="pdu">6. Encapsulamento e PDU</option>
+              <option value="dominios">7. Domínios de Rede</option>
+              <option value="cliente-servidor">
+                8. Cliente-Servidor vs. Peer-to-Peer
+              </option>
+              <option value="ipv4">9. Endereçamento IPv4</option>
+              <option value="vlsm">10. Subnetting (VLSM)</option>
+              <option value="ipv6">11. Introdução ao IPv6</option>
+              <option value="resolucao">12. Protocolos de Resolução</option>
+              <option value="gateway">13. Gateway Padrão</option>
+              <option value="plano-dados">14. Plano de Dados vs. Controle</option>
+              <option value="virtualizacao">15. Virtualização Básica</option>
+              <option value="cloud">16. Conceitos de Cloud</option>
+            </select>
+
+            <p
+              id="bankText"
+              class="mt-2 mb-1 text-gray-700 font-semibold hidden"
+            >
+              Escolha um banco de perguntas
+            </p>
+          </div>
         </div>
 
         <div
@@ -103,23 +140,30 @@
           <!-- Conceitos de Rede -->
           <div
             class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
-            data-bank="questions01"
+            data-bank="questions011"
             data-topic="conceitos"
           >
-            <span class="text-base">1</span>
-            <span class="text-xs" id="count-questions01">0</span>
+            <span class="text-base">1/1A</span>
+            <span class="text-xs" id="count-questions011">0</span>
           </div>
-
 
           <div
             class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
-            data-bank="questions01"
+            data-bank="questions012"
             data-topic="conceitos"
           >
-            <span class="text-base">1</span>
-            <span class="text-xs" id="count-questions01">0</span>
+            <span class="text-base">1/1B</span>
+            <span class="text-xs" id="count-questions012">0</span>
           </div>
 
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions013"
+            data-topic="conceitos"
+          >
+            <span class="text-base">1/1C</span>
+            <span class="text-xs" id="count-questions013">0</span>
+          </div>
 
           <!-- Topologias Físicas e Lógicas -->
           <div
@@ -127,7 +171,7 @@
             data-bank="questions02"
             data-topic="topologias"
           >
-            <span class="text-base">2</span>
+            <span class="text-base">1/2</span>
             <span class="text-xs" id="count-questions02">0</span>
           </div>
 
@@ -137,7 +181,7 @@
             data-bank="questions03"
             data-topic="cabos"
           >
-            <span class="text-base">3</span>
+            <span class="text-base">1/3</span>
             <span class="text-xs" id="count-questions03">0</span>
           </div>
 
@@ -147,8 +191,128 @@
             data-bank="questions04"
             data-topic="velocidade"
           >
-            <span class="text-base">4</span>
+            <span class="text-base">1/4</span>
             <span class="text-xs" id="count-questions04">0</span>
+          </div>
+
+          <!-- Modelos de Referência - OSI -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions05"
+            data-topic="osi"
+          >
+            <span class="text-base">1/5</span>
+            <span class="text-xs" id="count-questions05">0</span>
+          </div>
+
+          <!-- Encapsulamento e PDU -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions06"
+            data-topic="pdu"
+          >
+            <span class="text-base">1/6</span>
+            <span class="text-xs" id="count-questions06">0</span>
+          </div>
+
+          <!-- Domínios de Rede -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions07"
+            data-topic="dominios"
+          >
+            <span class="text-base">1/7</span>
+            <span class="text-xs" id="count-questions07">0</span>
+          </div>
+
+          <!-- Comunicação Cliente-Servidor vs. Peer-to-Peer -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions08"
+            data-topic="cliente-servidor"
+          >
+            <span class="text-base">1/8</span>
+            <span class="text-xs" id="count-questions08">0</span>
+          </div>
+
+          <!-- Endereçamento IPv4 -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions09"
+            data-topic="ipv4"
+          >
+            <span class="text-base">1/9</span>
+            <span class="text-xs" id="count-questions09">0</span>
+          </div>
+
+          <!-- Subnetting (VLSM) -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions10"
+            data-topic="vlsm"
+          >
+            <span class="text-base">1/10</span>
+            <span class="text-xs" id="count-questions10">0</span>
+          </div>
+
+          <!-- Introdução ao IPv6 -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions11"
+            data-topic="ipv6"
+          >
+            <span class="text-base">1/11</span>
+            <span class="text-xs" id="count-questions11">0</span>
+          </div>
+
+          <!-- Protocolos de Resolução -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions12"
+            data-topic="resolucao"
+          >
+            <span class="text-base">1/12</span>
+            <span class="text-xs" id="count-questions12">0</span>
+          </div>
+
+          <!-- Gateway Padrão (Default Gateway) -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions13"
+            data-topic="gateway"
+          >
+            <span class="text-base">1/13</span>
+            <span class="text-xs" id="count-questions13">0</span>
+          </div>
+
+          <!-- Plano de Dados vs. -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions14"
+            data-topic="plano-dados"
+          >
+            <span class="text-base">1/14</span>
+            <span class="text-xs" id="count-questions14">0</span>
+          </div>
+
+          <!-- Virtualização Básica -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions15"
+            data-topic="virtualizacao"
+          >
+            <span class="text-base">1/15</span>
+            <span class="text-xs" id="count-questions15">0</span>
+          </div>
+
+          <!-- Conceitos de Cloud -->
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions16"
+            data-topic="cloud"
+          >
+            <span class="text-base">1/16</span>
+            <span class="text-xs" id="count-questions16">0</span>
           </div>
         </div>
 
@@ -169,48 +333,94 @@
       </div>
 
       <script>
-        window.addEventListener('load', () => {
+        document.addEventListener('DOMContentLoaded', () => {
+          // ===== ELEMENTOS =====
+          const ccnaMenu = document.getElementById('ccnaMenu');
+          const fundamentosBlock = document.getElementById('fundamentosBlock');
+
           const topicSelect = document.getElementById('topicSelect');
-          topicSelect.value = ''; // reseta para a primeira opção
-        });
+          const bankCards = document.querySelectorAll('.selectBank');
+          const startBtn = document.getElementById('startBtn');
+          const bankText = document.getElementById('bankText');
+          const questionCount = document.getElementById('questionCount');
 
-        const topicSelect = document.getElementById('topicSelect');
-        const bankCards = document.querySelectorAll('.selectBank');
-        const startBtn = document.getElementById('startBtn');
-        const bankText = document.getElementById('bankText');
-        let selectedBank = null;
+          let selectedBank = null;
 
-        // Mostrar os bancos conforme o tema
-        topicSelect.addEventListener('change', () => {
-          const selectedTopic = topicSelect.value;
-          selectedBank = null;
-          startBtn.disabled = true;
-          startBtn.classList.add('opacity-50', 'cursor-not-allowed');
-          if (topicSelect.value) {
-            bankText.classList.remove('hidden'); // mostra o texto
-          } else {
-            bankText.classList.add('hidden'); // esconde novamente
+          // ===== RESET INICIAL =====
+          if (ccnaMenu) ccnaMenu.value = '';
+          if (topicSelect) topicSelect.value = '';
+
+          fundamentosBlock?.classList.add('hidden');
+          bankText?.classList.add('hidden');
+          questionCount?.classList.add('hidden');
+
+          startBtn?.classList.add('opacity-50', 'cursor-not-allowed');
+          if (startBtn) startBtn.disabled = true;
+
+          // ===== MENU PRINCIPAL CCNA =====
+          if (ccnaMenu) {
+            ccnaMenu.addEventListener('change', () => {
+              // Esconde tudo primeiro
+              fundamentosBlock.classList.add('hidden');
+              topicSelect.value = '';
+              bankText.classList.add('hidden');
+              questionCount.classList.add('hidden');
+
+              bankCards.forEach((card) => {
+                card.classList.add('hidden');
+                card.classList.remove('bg-blue-700');
+              });
+
+              startBtn.disabled = true;
+              startBtn.classList.add('opacity-50', 'cursor-not-allowed');
+              selectedBank = null;
+
+              // Mostra apenas se for Network Fundamentals
+              if (ccnaMenu.value === 'fundamentos') {
+                fundamentosBlock.classList.remove('hidden');
+              }
+            });
           }
 
+          // ===== SELEÇÃO DE TEMA =====
+          if (topicSelect) {
+            topicSelect.addEventListener('change', () => {
+              const selectedTopic = topicSelect.value;
+              selectedBank = null;
+
+              startBtn.disabled = true;
+              startBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+              if (selectedTopic) {
+                bankText.classList.remove('hidden');
+                questionCount.classList.remove('hidden');
+              } else {
+                bankText.classList.add('hidden');
+                questionCount.classList.add('hidden');
+              }
+
+              bankCards.forEach((card) => {
+                if (card.dataset.topic === selectedTopic) {
+                  card.classList.remove('hidden');
+                } else {
+                  card.classList.add('hidden');
+                  card.classList.remove('bg-blue-700');
+                }
+              });
+            });
+          }
+
+          // ===== SELEÇÃO DE BANCO =====
           bankCards.forEach((card) => {
-            if (card.dataset.topic === selectedTopic) {
-              card.classList.remove('hidden');
-            } else {
-              card.classList.add('hidden');
-              card.classList.remove('bg-blue-700'); // Remove seleção anterior
-            }
-          });
-        });
+            card.addEventListener('click', () => {
+              bankCards.forEach((c) => c.classList.remove('bg-blue-700'));
+              card.classList.add('bg-blue-700');
 
-        // Selecionar um banco
-        bankCards.forEach((card) => {
-          card.addEventListener('click', () => {
-            bankCards.forEach((c) => c.classList.remove('bg-blue-700'));
-            card.classList.add('bg-blue-700');
-            selectedBank = card.dataset.bank;
+              selectedBank = card.dataset.bank;
 
-            startBtn.disabled = false;
-            startBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+              startBtn.disabled = false;
+              startBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            });
           });
         });
       </script>
@@ -237,6 +447,13 @@
         </button>
       </div>
 
+      <button
+        id="confirmBtn"
+        class="mt-2 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 hidden"
+      >
+        Confirmar Resposta
+      </button>
+
       <!-- RESULTADO -->
       <div id="result" class="text-center hidden">
         <p id="scoreText" class="text-xl font-bold mb-4"></p>
@@ -249,9 +466,9 @@
       </div>
     </div>
 
-    <script src="questions01.js"></script>
-    <script src="questions02.js"></script>
-    <script src="questions03.js"></script>
+    <script src="questions011.js"></script>
+    <script src="questions012.js"></script>
+    <script src="questions013.js"></script>
     <script src="questions04.js"></script>
     <script src="script.js"></script>
   </body>
