@@ -4,99 +4,56 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentQuestion = 0;
   let score = 0;
   let wrong = 0;
-  let selectedBankFunction = null;
+  let totalQuestions = 0;
 
-  const bank1 = 'questions01';
-  const total = window['loadQuestions01']
-    ? window['loadQuestions01']().length
-    : 0;
-  const countEl = document.getElementById(`count-${bank1}`);
-  if (countEl) countEl.textContent = total;
-
-  const bank2 = 'questions02';
-  const total2 = window['loadQuestions02']
-    ? window['loadQuestions02']().length
-    : 0;
-  const countE2 = document.getElementById(`count-${bank2}`);
-  if (countE2) countE2.textContent = total2;
-
-  const bank3 = 'questions03';
-  const total3 = window['loadQuestions03']
-    ? window['loadQuestions03']().length
-    : 0;
-  const countE3 = document.getElementById(`count-${bank3}`);
-  if (countE3) countE3.textContent = total3;
-
-  const bank4 = 'questions04'; 
-  const total4 = window['loadQuestions04']
-    ? window['loadQuestions04']().length
-    : 0;
-  const countE4 = document.getElementById(`count-${bank4}`);
-  if (countE4) countE4.textContent = total4;
-
-  const bankCards = document.querySelectorAll('[data-bank]');
-  const accuracyEl = document.getElementById('accuracy');
+  const bankCards = document.querySelectorAll('.selectBank');
   const startBtn = document.getElementById('startBtn');
   const restartBtn = document.getElementById('restartBtn');
   const nextBtn = document.getElementById('nextBtn');
+
   const startScreen = document.getElementById('start-screen');
   const quizContainer = document.getElementById('quiz-container');
   const resultEl = document.getElementById('result');
-  const scoreText = document.getElementById('scoreText');
   const statusPanel = document.getElementById('statusPanel');
+
+  const scoreText = document.getElementById('scoreText');
   const questionNumberEl = document.getElementById('questionNumber');
   const correctCountEl = document.getElementById('correctCount');
   const wrongCountEl = document.getElementById('wrongCount');
+  const accuracyEl = document.getElementById('accuracy');
+
   const questionEl = document.getElementById('question');
   const answersEl = document.getElementById('answers');
   const clueText = document.getElementById('clueText');
+  const questionCountSelect = document.getElementById('questionCount');
 
-  startBtn.disabled = true; // desabilita por padrão
+  startBtn.disabled = true;
 
-  // 🔹 Seleção do banco de perguntas
-  document.querySelectorAll('.selectBank').forEach((card) => {
-    card.addEventListener('click', () => {
-      // Remove highlight dos outros cards
-      document
-        .querySelectorAll('.selectBank')
-        .forEach((c) => c.classList.remove('bg-blue-700'));
-      card.classList.add('bg-blue-700');
+  // =========================
+  // CONTAGEM DE QUESTÕES POR BANCO
+  // =========================
+  updateBankCount('questions01', 'loadQuestions01');
+  updateBankCount('questions02', 'loadQuestions02');
+  updateBankCount('questions03', 'loadQuestions03');
+  updateBankCount('questions04', 'loadQuestions04');
 
-      // Salva o banco selecionado
-      selectedBank = card.getAttribute('data-bank');
+  function updateBankCount(bankName, functionName) {
+    const countEl = document.getElementById(`count-${bankName}`);
+    if (typeof window[functionName] === 'function') {
+      const total = window[functionName]().length;
+      if (countEl) countEl.textContent = total;
+    }
+  }
 
-      // Remover script antigo
-      const oldScript = document.getElementById('dynamicQuestions');
-      if (oldScript) oldScript.remove();
-
-      // Adicionar script novo
-      const script = document.createElement('script');
-      script.src = `./${selectedBank}.js`;
-      script.id = 'dynamicQuestions';
-      script.onload = () => {
-        const functionName =
-          'load' + selectedBank.charAt(0).toUpperCase() + selectedBank.slice(1);
-
-        if (typeof window[functionName] === 'function') {
-          questions = window[functionName]();
-          populateQuestionCountOptions();
-
-          startBtn.disabled = false;
-          startBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-
-          console.log('Banco carregado:', questions.length);
-        } else {
-          console.error(`Função ${functionName} não encontrada.`);
-        }
-      };
-
-      document.body.appendChild(script);
-    });
-  });
-
+  // =========================
+  // SELEÇÃO DE BANCO
+  // =========================
   bankCards.forEach((card) => {
     card.addEventListener('click', () => {
-      bankCards.forEach((c) => c.classList.remove('bg-green-600'));
+      bankCards.forEach((c) =>
+        c.classList.remove('bg-green-600', 'bg-blue-700')
+      );
+
       card.classList.add('bg-green-600');
 
       selectedBank = card.getAttribute('data-bank');
@@ -109,15 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
         populateQuestionCountOptions();
         startBtn.disabled = false;
       } else {
-        console.error('Banco não encontrado:', functionName);
+        console.error('Função não encontrada:', functionName);
       }
     });
   });
 
-  // Função para preencher o select
+  // =========================
+  // PREENCHER SELECT DE QUANTIDADE
+  // =========================
   function populateQuestionCountOptions() {
-    const select = document.getElementById('questionCount');
-    select.innerHTML = '';
+    questionCountSelect.innerHTML = '';
 
     if (!questions || questions.length === 0) return;
 
@@ -125,41 +83,40 @@ document.addEventListener('DOMContentLoaded', () => {
       const option = document.createElement('option');
       option.value = i;
       option.textContent = `${i} questões`;
-      select.appendChild(option);
+      questionCountSelect.appendChild(option);
     }
 
     if (questions.length % 10 !== 0) {
       const option = document.createElement('option');
       option.value = questions.length;
       option.textContent = `${questions.length} questões`;
-      select.appendChild(option);
+      questionCountSelect.appendChild(option);
     }
 
     const allOption = document.createElement('option');
     allOption.value = 'all';
     allOption.textContent = 'Todas';
-    select.appendChild(allOption);
+    questionCountSelect.appendChild(allOption);
   }
 
+  // =========================
+  // INICIAR QUIZ
+  // =========================
   startBtn.addEventListener('click', () => {
-    if (!selectedBank) {
+    if (!selectedBank || questions.length === 0) {
       alert('Escolha um banco de perguntas!');
       return;
     }
 
-    if (!questions || questions.length === 0) {
-      alert('O banco de perguntas ainda não foi carregado!');
-      return;
-    }
+    const qCount = questionCountSelect.value;
 
-    // Escolher quantidade
-    const qCount = document.getElementById('questionCount').value;
     if (qCount !== 'all') {
       const n = parseInt(qCount);
       questions = shuffleArray(questions).slice(0, n);
     } else {
       questions = shuffleArray(questions);
     }
+    totalQuestions = questions.length; // <-- aqui definimos o total
 
     startScreen.classList.add('hidden');
     quizContainer.classList.remove('hidden');
@@ -168,64 +125,53 @@ document.addEventListener('DOMContentLoaded', () => {
     currentQuestion = 0;
     score = 0;
     wrong = 0;
+
+    resetTimer(); // reseta o cronômetro
+    startTimer(); // inicia o cronômetro
+
     loadQuestion();
   });
 
-  nextBtn.addEventListener('click', () => {
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
-      loadQuestion();
-    } else {
-      quizContainer.classList.add('hidden');
-      resultEl.classList.remove('hidden');
-      scoreText.textContent = `Você acertou ${score} de ${questions.length} questões.`;
-    }
-  });
-
-  restartBtn.addEventListener('click', () => {
-    resultEl.classList.add('hidden');
-    startScreen.classList.remove('hidden');
-    statusPanel.classList.add('hidden');
-    currentQuestion = 0;
-    score = 0;
-    wrong = 0;
-    answersEl.innerHTML = '';
-    clueText.innerHTML = '';
-  });
-
+  // =========================
+  // CARREGAR QUESTÃO
+  // =========================
   function loadQuestion() {
     answersEl.innerHTML = '';
     clueText.classList.add('hidden');
     clueText.innerHTML = '';
+    nextBtn.classList.add('hidden');
 
     const q = questions[currentQuestion];
     const shuffledOptions = shuffleArray([...q.options]);
+
+    questionEl.textContent = q.question;
 
     shuffledOptions.forEach((opt) => {
       const btn = document.createElement('button');
       btn.textContent = opt;
       btn.className =
-        'bg-gray-100 px-3 py-2 rounded-lg hover:bg-gray-200 text-sm leading-snug text-left';
+        'bg-gray-100 px-3 py-2 rounded-lg hover:bg-gray-200 text-sm text-left';
 
       btn.onclick = () => selectAnswer(opt, q.answer);
+
       answersEl.appendChild(btn);
     });
 
-    questionEl.textContent = q.question;
     updateStatus();
-    nextBtn.classList.add('hidden');
   }
 
+  // =========================
+  // SELECIONAR RESPOSTA
+  // =========================
   function selectAnswer(selected, correct) {
     const isCorrect = selected === correct;
 
     if (isCorrect) score++;
     else wrong++;
 
-    updateStatus();
-
     Array.from(answersEl.children).forEach((btn) => {
       btn.disabled = true;
+
       if (btn.textContent === correct) btn.classList.add('bg-green-200');
       else if (btn.textContent === selected) btn.classList.add('bg-red-200');
     });
@@ -233,25 +179,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const current = questions[currentQuestion];
 
     clueText.innerHTML = `
-      <p class="flex items-center gap-2 font-semibold mb-2">
-        ${
-          isCorrect
-            ? `<span class="w-5 h-5 flex items-center justify-center bg-green-600 text-white rounded-full text-xs">✓</span>`
-            : `<span class="w-5 h-5 flex items-center justify-center bg-red-600 text-white rounded-full text-xs">✕</span>`
-        }
-        Resposta correta: ${correct}
+      <p class="font-semibold mb-2">
+        ${isCorrect ? '✓ Correto!' : '✕ Errado!'}
       </p>
-      <p>Explicação: ${current.clue}</p>
+      <p>Resposta correta: ${correct}</p>
+      <p class="mt-2">Explicação: ${current.clue}</p>
     `;
 
     clueText.classList.remove('hidden');
     nextBtn.classList.remove('hidden');
+
+    updateStatus();
   }
 
+  // =========================
+  // PRÓXIMA QUESTÃO
+  // =========================
+  nextBtn.addEventListener('click', () => {
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+      loadQuestion();
+    } else {
+      quizContainer.classList.add('hidden');
+      resultEl.classList.remove('hidden');
+
+      scoreText.textContent = `Você acertou ${score} de ${questions.length} questões.`;
+    }
+  });
+
+  // =========================
+  // REINICIAR
+  // =========================
+  restartBtn.addEventListener('click', () => {
+    resultEl.classList.add('hidden');
+    startScreen.classList.remove('hidden');
+    statusPanel.classList.add('hidden');
+
+    currentQuestion = 0;
+    score = 0;
+    wrong = 0;
+    answersEl.innerHTML = '';
+    clueText.innerHTML = '';
+  });
+
+  // =========================
+  // ATUALIZAR STATUS
+  // =========================
   function updateStatus() {
     questionNumberEl.textContent = currentQuestion + 1;
     correctCountEl.textContent = score;
     wrongCountEl.textContent = wrong;
+
+    // Atualiza total dinâmico
+    const questionTotalEl = document.getElementById('questionTotal');
+    if (questionTotalEl) questionTotalEl.textContent = totalQuestions;
 
     const totalAnswered = score + wrong;
     const percentage =
@@ -260,6 +242,9 @@ document.addEventListener('DOMContentLoaded', () => {
     accuracyEl.textContent = percentage + '%';
   }
 
+  // =========================
+  // EMBARALHAR ARRAY
+  // =========================
   function shuffleArray(array) {
     const arr = [...array];
     for (let i = arr.length - 1; i > 0; i--) {
@@ -269,3 +254,35 @@ document.addEventListener('DOMContentLoaded', () => {
     return arr;
   }
 });
+
+// =========================
+// CRONÔMETRO
+// =========================
+let timerInterval;
+const timerEl = document.getElementById('timer');
+let secondsElapsed = 0;
+
+function startTimer() {
+  timerEl.textContent = formatTime(secondsElapsed);
+  timerInterval = setInterval(() => {
+    secondsElapsed++;
+    timerEl.textContent = formatTime(secondsElapsed);
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+}
+
+function resetTimer() {
+  stopTimer();
+  secondsElapsed = 0;
+  timerEl.textContent = formatTime(secondsElapsed);
+}
+
+function formatTime(sec) {
+  const h = String(Math.floor(sec / 3600)).padStart(2, '0');
+  const m = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
+  const s = String(sec % 60).padStart(2, '0');
+  return `${h}:${m}:${s}`;
+}
