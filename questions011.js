@@ -349,7 +349,7 @@ function loadQuestions011() {
       clue: 'Ainda é rede local dentro do mesmo prédio.',
     },
     {
-      num: 1,
+      num: 31,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -359,7 +359,7 @@ function loadQuestions011() {
       clue: 'Todos os roteadores conectam a um ponto central (provedor).',
     },
     {
-      num: 2,
+      num: 32,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -369,7 +369,7 @@ function loadQuestions011() {
       clue: 'Roteadores gerenciam sub-redes e tráfego entre redes diferentes, mesmo dentro de uma MAN.',
     },
     {
-      num: 3,
+      num: 33,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -384,7 +384,7 @@ function loadQuestions011() {
       clue: 'Switch L3 permite segmentação de rede com roteamento interno, fundamental para VLANs.',
     },
     {
-      num: 4,
+      num: 34,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -399,7 +399,7 @@ function loadQuestions011() {
       clue: 'MPLS permite QoS, VPN depende de Internet pública sem garantia de SLA.',
     },
     {
-      num: 5,
+      num: 35,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -414,7 +414,7 @@ function loadQuestions011() {
       clue: 'WAN exige configuração de roteadores, monitoramento e políticas de conectividade.',
     },
     {
-      num: 6,
+      num: 36,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -424,7 +424,7 @@ function loadQuestions011() {
       clue: 'Anel permite caminho alternativo se um link falhar.',
     },
     {
-      num: 7,
+      num: 37,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -434,7 +434,7 @@ function loadQuestions011() {
       clue: 'Switch segmenta domínios de colisão, diferente de roteadores que segmentam sub-redes.',
     },
     {
-      num: 8,
+      num: 38,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -449,7 +449,7 @@ function loadQuestions011() {
       clue: 'VPN permite extensão segura da LAN sobre WAN.',
     },
     {
-      num: 9,
+      num: 39,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -464,7 +464,7 @@ function loadQuestions011() {
       clue: 'A MAN interliga várias LANs, mas cada prédio ainda tem sua LAN interna.',
     },
     {
-      num: 10,
+      num: 40,
       tropic: '1. Network Fundamentals',
       subTropic: '1.2 Topologias e dispositivos avançados',
       question:
@@ -479,7 +479,7 @@ function loadQuestions011() {
       clue: 'QoS no roteador WAN permite priorizar tráfego crítico entre filiais.',
     },
     {
-      num: 1,
+      num: 41,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -494,7 +494,7 @@ function loadQuestions011() {
       clue: 'A LAN local está funcional, o problema ocorre na comunicação remota.',
     },
     {
-      num: 2,
+      num: 42,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -509,7 +509,7 @@ function loadQuestions011() {
       clue: 'Interliga múltiplas LANs dentro da mesma área metropolitana.',
     },
     {
-      num: 3,
+      num: 43,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -524,7 +524,7 @@ function loadQuestions011() {
       clue: 'Na estrela simples, o ponto central é crítico.',
     },
     {
-      num: 4,
+      num: 44,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -539,7 +539,7 @@ function loadQuestions011() {
       clue: 'VLAN segmenta domínios de broadcast.',
     },
     {
-      num: 5,
+      num: 45,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -554,7 +554,7 @@ function loadQuestions011() {
       clue: 'VPN depende da qualidade da WAN pública.',
     },
     {
-      num: 6,
+      num: 46,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -569,7 +569,7 @@ function loadQuestions011() {
       clue: 'Dois links WAN aumentam disponibilidade.',
     },
     {
-      num: 7,
+      num: 47,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -584,7 +584,7 @@ function loadQuestions011() {
       clue: 'Comunicação local ok, falha ocorre no tráfego intermunicipal.',
     },
     {
-      num: 8,
+      num: 48,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -599,7 +599,7 @@ function loadQuestions011() {
       clue: 'Roteadores conectam redes distintas.',
     },
     {
-      num: 9,
+      num: 49,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -614,7 +614,7 @@ function loadQuestions011() {
       clue: 'Alta latência afeta principalmente aplicações em tempo real.',
     },
     {
-      num: 10,
+      num: 50,
       tropic: '1. Network Fundamentals',
       subTropic: '1.3 Troubleshooting e cenários avançados',
       question:
@@ -627,6 +627,145 @@ function loadQuestions011() {
       ],
       answer: ['MPLS dedicado'],
       clue: 'MPLS oferece SLA e QoS garantido.',
+    },
+    {
+      num: 51,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'Arquitetura Corporativa – Classificação de Rede',
+      question:
+        'Uma organização possui uma matriz e duas filiais na mesma cidade. Cada local possui sua própria LAN. As conexões entre os prédios utilizam fibra dedicada fornecida por uma operadora local. A empresa não possui controle sobre a infraestrutura física entre os prédios. Como essa interligação deve ser classificada?',
+      options: ['LAN estendida', 'MAN', 'PAN corporativa', 'Backbone interno'],
+      answer: ['MAN'],
+      clue: 'Mesma cidade, infraestrutura da operadora.',
+    },
+
+    {
+      num: 52,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'MPLS vs Internet',
+      question:
+        'Uma empresa utiliza MPLS para conectar seus escritórios internacionais. O time de TI afirma que os dados estão seguros porque o tráfego não passa pela internet pública. Qual afirmação é mais precisa?',
+      options: [
+        'MPLS fornece criptografia automática',
+        'MPLS é isolado logicamente, mas não criptografa por padrão',
+        'MPLS elimina necessidade de VPN',
+        'MPLS impede ataques internos',
+      ],
+      answer: ['MPLS é isolado logicamente, mas não criptografa por padrão'],
+      clue: 'Isolamento não é criptografia.',
+    },
+
+    {
+      num: 53,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'Overlay e Underlay',
+      question:
+        'Uma empresa implementa túneis IPsec entre filiais sobre dois links de internet distintos. O IPsec representa qual componente da arquitetura?',
+      options: ['Underlay', 'Overlay', 'Plano físico', 'Link dedicado'],
+      answer: ['Overlay'],
+      clue: 'Túnel lógico sobre rede física.',
+    },
+
+    {
+      num: 54,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'Topologia WAN',
+      question:
+        'Uma organização com 6 filiais decide implementar VPN site-to-site em topologia full mesh. Qual impacto arquitetural deve ser considerado?',
+      options: [
+        'Redução do número de túneis',
+        'Aumento exponencial de túneis',
+        'Eliminação do roteamento dinâmico',
+        'Dependência exclusiva de um hub',
+      ],
+      answer: ['Aumento exponencial de túneis'],
+      clue: 'n(n-1)/2.',
+    },
+
+    {
+      num: 55,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'SD-WAN – Política de Aplicação',
+      question:
+        'Uma empresa quer que o tráfego de voz utilize MPLS e o tráfego de backup utilize internet banda larga automaticamente. Qual tecnologia permite essa decisão baseada em aplicação?',
+      options: ['VLAN trunking', 'SD-WAN', 'STP', 'Port security'],
+      answer: ['SD-WAN'],
+      clue: 'Application-aware routing.',
+    },
+
+    {
+      num: 56,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'Responsabilidade Operacional',
+      question:
+        'Em um ambiente MPLS tradicional, qual elemento é gerenciado exclusivamente pelo provedor?',
+      options: [
+        'Switches de acesso LAN',
+        'Roteadores internos da empresa',
+        'Backbone P da operadora',
+        'Firewall local',
+      ],
+      answer: ['Backbone P da operadora'],
+      clue: 'Core MPLS pertence ao carrier.',
+    },
+
+    {
+      num: 57,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'Redundância WAN',
+      question:
+        'Uma empresa utiliza SD-WAN com dois links de internet ativos simultaneamente. Qual benefício arquitetural isso proporciona?',
+      options: [
+        'Eliminação de NAT',
+        'Balanceamento e failover automático',
+        'Substituição de switches',
+        'Remoção da camada IP',
+      ],
+      answer: ['Balanceamento e failover automático'],
+      clue: 'Multipath ativo.',
+    },
+
+    {
+      num: 58,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'LAN vs WAN – Interpretação de Prova',
+      question:
+        'Um campus universitário possui vários prédios conectados por fibra própria, totalmente gerenciada pela instituição. Como essa rede deve ser classificada?',
+      options: ['WAN', 'LAN estendida', 'MAN pública', 'PAN'],
+      answer: ['LAN estendida'],
+      clue: 'Infraestrutura própria.',
+    },
+
+    {
+      num: 59,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'Comparação Arquitetural',
+      question:
+        'Qual solução oferece maior previsibilidade de latência e SLA formalizado?',
+      options: [
+        'VPN sobre internet residencial',
+        'MPLS corporativo',
+        'Wi-Fi público',
+        'Hotspot móvel',
+      ],
+      answer: ['MPLS corporativo'],
+      clue: 'Contrato com SLA.',
+    },
+
+    {
+      num: 60,
+      tropic: '1. Network Fundamentals',
+      subTropic: 'Escolha Estratégica',
+      question:
+        'Uma empresa global deseja reduzir custos de WAN, utilizar múltiplos provedores de internet e aplicar políticas centralizadas por aplicação. Qual solução melhor atende esse cenário?',
+      options: [
+        'MPLS puro',
+        'VPN full mesh manual',
+        'SD-WAN',
+        'Topologia LAN única',
+      ],
+      answer: ['SD-WAN'],
+      clue: 'Flexibilidade + múltiplos links.',
     },
   ];
 }

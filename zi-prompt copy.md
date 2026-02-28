@@ -1,16 +1,14 @@
 Estou estudando para fazer a certificação CCNA.
 Aja como um especialista em certificação CCNA, com experiência em prova reais.
 
-Quero 20  perguntas para simular a prova CCNA 200-301.
+Quero  30  perguntas para simular a prova CCNA 200-301.
 Com cenário mais próximo do estilo prova oficial,
 com pegadinhas e análise e com a maior probabilidade de cair na prova oficial.
-deve conter múltiplas escolhas em 1/3 da questões.
+na questões misture perguntas com múltiplas escolhas.
 
-Vamos abordar todos esses trópicos:
+Vamos abordar esse tropico:
   Network Fundamentals
-  Topologias Físicas e Lógicas: Estrela (Star), Malha (Mesh), Barramento (Bus) e a moderna Spine-Leaf.
-
-observação: o num deve começar em 1
+  Conceitos de Rede: Diferença entre LAN, WAN e MAN e PAN.
 
 Quero nestas estrutura de exemplo:
 

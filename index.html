@@ -16,7 +16,7 @@
         <h1
           class="text-2xl sm:text-xl font-semibold text-center sm:text-left leading-tight"
         >
-          Simulado CCNA v.1.2.3
+          Simulado CCNA v.1.2.5
         </h1>
 
         <div
@@ -103,7 +103,9 @@
             >
               <option value="">Selecione um tema</option>
               <option value="conceitos">1. Conceitos de Rede</option>
-              <option value="topologias">2. Topologias Físicas e Lógicas</option>
+              <option value="topologias">
+                2. Topologias Físicas e Lógicas
+              </option>
               <option value="cabos">3. Cabos, Conectores e Mídias</option>
               <option value="velocidade">
                 4. Velocidade, Duplex e Largura de Banda
@@ -119,7 +121,9 @@
               <option value="ipv6">11. Introdução ao IPv6</option>
               <option value="resolucao">12. Protocolos de Resolução</option>
               <option value="gateway">13. Gateway Padrão</option>
-              <option value="plano-dados">14. Plano de Dados vs. Controle</option>
+              <option value="plano-dados">
+                14. Plano de Dados vs. Controle
+              </option>
               <option value="virtualizacao">15. Virtualização Básica</option>
               <option value="cloud">16. Conceitos de Cloud</option>
             </select>
@@ -168,11 +172,20 @@
           <!-- Topologias Físicas e Lógicas -->
           <div
             class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
-            data-bank="questions02"
+            data-bank="questions021"
             data-topic="topologias"
           >
-            <span class="text-base">1</span>
-            <span class="text-xs" id="count-questions02">0</span>
+            <span class="text-base">2.1</span>
+            <span class="text-xs" id="count-questions021">0</span>
+          </div>
+
+          <div
+            class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 text-white flex flex-col items-center justify-center font-bold rounded-xl cursor-pointer hover:bg-blue-600 transition selectBank hidden"
+            data-bank="questions022"
+            data-topic="topologias"
+          >
+            <span class="text-base">2.2</span>
+            <span class="text-xs" id="count-questions022">0</span>
           </div>
 
           <!-- Cabos, Conectores e Mídias -->
@@ -469,7 +482,8 @@
     <script src="questions011.js"></script>
     <script src="questions012.js"></script>
     <script src="questions013.js"></script>
-    <script src="questions04.js"></script>
+    <script src="questions021.js"></script>
+    <script src="questions022.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -36,8 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
   updateBankCount('questions011', 'loadQuestions011');
   updateBankCount('questions012', 'loadQuestions012');
   updateBankCount('questions013', 'loadQuestions013');
-  updateBankCount('questions03', 'loadQuestions03');
-  updateBankCount('questions04', 'loadQuestions04');
+  updateBankCount('questions021', 'loadQuestions021');
+  updateBankCount('questions022', 'loadQuestions022');
+
 
   function updateBankCount(bankName, functionName) {
     const countEl = document.getElementById(`count-${bankName}`);
